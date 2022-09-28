@@ -1,6 +1,6 @@
 ---
 title: A Review of Causal Average Treatment Effect and Treatment Heterogeneity Estimation with Non-finite Action
-type: researches
+type: research
 date: 2022-06-13
 imageurl: /assets/preview-mycat.png
 authors: Yating
