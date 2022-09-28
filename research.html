@@ -11,7 +11,7 @@ title: Research
 
 	<div class="divider"></div>
 
-	{% assign sorted = (site.researches | sort: date) | reverse %}
+	{% assign sorted = (site.research | sort: date) | reverse %}
 	{% for post in sorted %}
 		{% unless post.next %}
 			<h3 class="code">{{ post.date | date: '%Y' }}</h3>
