@@ -3,5 +3,4 @@ layout: page
 title: Contact
 ---
 
-- E-mail: your e-mail
-- GitHub: your GitHub account
+- E-mail: yating at live.unc.edu
