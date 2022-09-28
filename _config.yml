@@ -1,14 +1,14 @@
 # Site Info
-title:              "The Plain Academic"
-description:        "My academic site"
-author_name:        "Breno Viana" # change this to your name
-logo_url:           https://avatars3.githubusercontent.com/u/17532418?s=460&v=4 # Get it from GitHub API: https://api.github.com/users/<username>
+title:              "Yating Zou"
+description:        " "
+author_name:        "Yating Zou" # change this to your name
+# Get logo url from GitHub API: https://api.github.com/users/<username>
 
 # Site Settings
-url:                https://brenov.github.io # main url
+url:                https://yatingz205.github.io # main url
 baseurl:            /the-plain-academic
 permalink:          /:title # Post permalink
-timezone:           America/Recife # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone:           America/New-York # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 mathjax:            true  # enables support for mathjax - set to 'false' to disable
 
 # Site Build
