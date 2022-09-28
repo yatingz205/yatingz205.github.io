@@ -1,0 +1,57 @@
+<link href="https://fonts.googleapis.com/css?family=Cutive+Mono" rel="stylesheet">
+
+<aside class="logo">
+
+	{% assign link = '/' %}
+	{% assign prompt = 'Back to Index' %}
+
+	<a href="{{ link | prepend: site.baseurl | prepend: site.url }}">
+		<img src="{{ site.logo_url }}" class="logo-avatar">
+	</a>
+	<span class="logo-prompt code">{{ prompt }}</span>
+</aside>
+
+<aside class="menu">
+
+	<ul class="top-menu">
+		{% if page.url != '/about' %}
+			{% assign link = '/about' %}
+			<li> <a href="{{ link | prepend: site.baseurl | prepend: site.url }}"> About </a> </li>
+		{% else %}
+			<li style="font-weight:bold;"> <a> About </a> </li>
+		{% endif %}
+		{% if page.url != '/researches' %}
+			{% assign link = '/researches' %}
+			<li> <a href="{{ link | prepend: site.baseurl | prepend: site.url }}"> Researches </a> </li>
+		{% else %}
+			<li style="font-weight:bold;"> <a> Researches </a> </li>
+		{% endif %}
+		{% if page.url != '/projects' %}
+			{% assign link = '/projects' %}
+			<li> <a href="{{ link | prepend: site.baseurl | prepend: site.url }}"> Projects </a> </li>
+		{% else %}
+			<li style="font-weight:bold;"> <a> Projects </a> </li>
+		{% endif %}
+	</ul>
+	<ul class="bottom-menu">
+		{% if page.url != '/talks' %}
+			{% assign link = '/talks' %}
+			<li> <a href="{{ link | prepend: site.baseurl | prepend: site.url }}"> Talks </a> </li>
+		{% else %}
+			<li style="font-weight:bold;"> <a> Talks </a> </li>
+		{% endif %}
+		{% if page.url != '/blog' %}
+			{% assign link = '/blog' %}
+			<li> <a href="{{ link | prepend: site.baseurl | prepend: site.url }}"> Blog </a> </li>
+		{% else %}
+			<li style="font-weight:bold;"> <a> Blog </a> </li>
+		{% endif %}
+		{% if page.url != '/contact' %}
+			{% assign link = '/contact' %}
+			<li> <a href="{{ link | prepend: site.baseurl | prepend: site.url }}"> Contact </a> </li>
+		{% else %}
+			<li style="font-weight:bold;"> <a> Contact </a> </li>
+		{% endif %}
+	</ul>
+
+</aside>
