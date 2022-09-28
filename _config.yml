@@ -11,7 +11,7 @@ timezone:           America/New-York # https://en.wikipedia.org/wiki/List_of_tz_
 mathjax:            true  # enables support for mathjax - set to 'false' to disable
 
 # Site Build
-highlighter:        rouge
+highlighter:        #33b8ff
 markdown:           kramdown
 kramdown:
     input:          GFM
@@ -28,12 +28,12 @@ plugins:
 remote_theme: heiswayi/the-plain
 
 collections:
-  researches:
+  research:
     output: true
-    permalink: /researches/:name
-  projects:
+    permalink: /research/:name
+  project:
     output: true
-    permalink: /projects/:name
+    permalink: /project/:name
   talks:
     output: true
     permalink: /talks/:name
@@ -59,17 +59,12 @@ defaults:
       layout:       "post"
   -
     scope:
-      type:         "researches"
+      type:         "research"
     values:
       layout:       "research-post"
   -
     scope:
-      type:         "projects"
-    values:
-      layout:       "post"
-  -
-    scope:
-      type:         "talks"
+      type:         "project"
     values:
       layout:       "post"
   -
