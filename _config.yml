@@ -6,7 +6,6 @@ author_name:        "Yating Zou" # change this to your name
 
 # Site Settings
 url:                https://yatingz205.github.io # main url
-baseurl:            /
 permalink:          /:title # Post permalink
 timezone:           America/New-York # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 mathjax:            true  # enables support for mathjax - set to 'false' to disable
