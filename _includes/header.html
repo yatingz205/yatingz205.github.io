@@ -2,8 +2,11 @@
 
 <aside class="logo">
 
+	{% assign link = '/about' %}
+	{% assign prompt = 'Back to About Page' %}
+
 	<a href="{{ link | prepend: site.baseurl | prepend: site.url }}">
-		<img class="logo-avatar" src="/assets/headshot_YatingZou.png">
+		<img src="{{ site.logo_url }}" class="logo-avatar">
 	</a>
 	<span class="logo-prompt code">{{ prompt }}</span>
 </aside>
