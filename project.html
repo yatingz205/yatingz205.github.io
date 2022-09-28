@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Projects
+title: Project
 ---
 
 <section>
@@ -11,7 +11,7 @@ title: Projects
 
 	<div class="divider"></div>
 
-	{% assign sorted = (site.projects | sort: date) | reverse %}
+	{% assign sorted = (site.project | sort: date) | reverse %}
 	{% for post in sorted %}
 		{% unless post.next %}
 			<h3 class="code">{{ post.date | date: '%Y' }}</h3>
