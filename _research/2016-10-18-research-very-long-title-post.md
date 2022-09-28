@@ -1,9 +1,9 @@
 ---
-title: For Example of very Long Title Would Be Typography Elements in One
+title: A Review of Causal Average Treatment Effect and Treatment Heterogeneity Estimation with Non-finite Action
 type: researches
 date: 2016-10-18
-imageurl: /the-plain-academic/assets/preview-mycat.png
-authors: Someone
+imageurl: /assets/preview-mycat.png
+authors: Yating
 status: accepted
 ---
 
