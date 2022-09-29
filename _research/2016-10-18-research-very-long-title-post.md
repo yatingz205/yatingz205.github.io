@@ -4,8 +4,10 @@ type: research
 date: 2022-06-13
 imageurl: /assets/preview-mycat.png
 authors: Yating
-status: accepted
+status: Thesis
 ---
+
+<embed type="application/pdf" src= "/assests/HonorsThesis_YatingZou.pdf" width= "500" height= "675">
 
 **NOTE:** This markdown cheatsheet is a typography demo for this theme. Check out this post to learn more about this markdown usage when you want to get started with this theme. Enjoy!
 
