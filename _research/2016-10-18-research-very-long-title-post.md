@@ -9,6 +9,13 @@ status: Thesis
 
 <embed type="application/pdf" src= "/assests/HonorsThesis_YatingZou.pdf" width= "500" height= "675">
 
+**Abstract:** There is an increasing appeal in answering causal questions, and this interest has drawn perspectives from many related areas. However, estimation of the Average Treatment Effect (ATE) and the Conditional Average Treatment Effect (CATE) with continuous, or non-finite, action is still a relatively new setup with its specific challenges, including extra difficulty in the estimation of the Generalized Propensity Score (GPS), the diagnostics of covariate balancing, and the pathwise non-differentiability of the functional for ATE. 
+
+This thesis, therefore, provides a review of recent advances on this topic. The main objectives are to 
+ - (1) identify and coalesce recent related research, 
+ - (2) provide a general introduction to methods such as machine learning, semi-parametric estimation, and optimization while discussing specific methods, and 
+ - (3) outline the connections between existing methods of ATE and CATE estimation so that readers can better navigate themselves in this fast-expanding field.
+
 **NOTE:** This markdown cheatsheet is a typography demo for this theme. Check out this post to learn more about this markdown usage when you want to get started with this theme. Enjoy!
 
 ## Typography Elements in One
