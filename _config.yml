@@ -34,9 +34,9 @@ collections:
   project:
     output: true
     permalink: /project/:name
-  talks:
+  CV:
     output: true
-    permalink: /talks/:name
+    permalink: /CV
   blog:
     output: true
     permalink: /blog/:name
