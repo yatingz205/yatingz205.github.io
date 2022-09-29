@@ -3,7 +3,7 @@
 <aside class="logo">
 
 	{% assign link = '/about' %}
-	{% assign prompt = 'Back to About Page' %}
+	{% assign prompt = 'Back to the About page' %}
 
 	<a href="{{ link | prepend: site.baseurl | prepend: site.url }}">
 		<img src="{{ site.logo_url }}" class="logo-avatar">
@@ -20,15 +20,15 @@
 		{% else %}
 			<li style="font-weight:bold;"> <a> About </a> </li>
 		{% endif %}
-		{% if page.url != '/researches' %}
-			{% assign link = '/researches' %}
-			<li> <a href="{{ link | prepend: site.baseurl | prepend: site.url }}"> Researches </a> </li>
+		{% if page.url != '/research' %}
+			{% assign link = '/research' %}
+			<li> <a href="{{ link | prepend: site.baseurl | prepend: site.url }}"> Research </a> </li>
 		{% else %}
 			<li style="font-weight:bold;"> <a> Research </a> </li>
 		{% endif %}
-		{% if page.url != '/projects' %}
-			{% assign link = '/projects' %}
-			<li> <a href="{{ link | prepend: site.baseurl | prepend: site.url }}"> Projects </a> </li>
+		{% if page.url != '/project' %}
+			{% assign link = '/project' %}
+			<li> <a href="{{ link | prepend: site.baseurl | prepend: site.url }}"> Project </a> </li>
 		{% else %}
 			<li style="font-weight:bold;"> <a> Project </a> </li>
 		{% endif %}

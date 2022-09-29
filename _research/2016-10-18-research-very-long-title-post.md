@@ -1,11 +1,28 @@
 ---
-title: For Example of very Long Title Would Be Typography Elements in One
-type: researches
-date: 2016-10-18
-imageurl: /the-plain-academic/assets/preview-mycat.png
-authors: Someone
-status: accepted
+title: A Review of Causal Average Treatment Effect and Treatment Heterogeneity Estimation with Non-finite Action
+type: research
+date: 2022-06-13
+imageurl: /assets/preview-mycat.png
+authors: Yating Zou
+status: Thesis
 ---
+
+
+**Abstract:** There is an increasing appeal in answering causal questions, and this interest has drawn perspectives from many related areas. However, estimation of the Average Treatment Effect (ATE) and the Conditional Average Treatment Effect (CATE) with continuous, or non-finite, action is still a relatively new setup with its specific challenges, including extra difficulty in the estimation of the Generalized Propensity Score (GPS), the diagnostics of covariate balancing, and the pathwise non-differentiability of the functional for ATE. 
+
+This thesis, therefore, provides a review of recent advances on this topic. The main objectives are to 
+ 1. identify and coalesce recent related research, 
+ 2. provide a general introduction to methods such as machine learning, semi-parametric estimation, and optimization while discussing specific methods, and 
+ 3. outline the connections between existing methods of ATE and CATE estimation so that readers can better navigate themselves in this fast-expanding field.
+
+<html>
+<body>
+    <object data="/assets/HonorsThesis_YatingZou.pdf" type="application/pdf" width="100%" height="100%">
+        <div>No online PDF viewer installed</div>
+    </object>
+</body>
+</html>
+
 
 **NOTE:** This markdown cheatsheet is a typography demo for this theme. Check out this post to learn more about this markdown usage when you want to get started with this theme. Enjoy!
 
