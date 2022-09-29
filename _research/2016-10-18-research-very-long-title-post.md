@@ -17,7 +17,7 @@ This thesis, therefore, provides a review of recent advances on this topic. The 
 
 <html>
 <body>
-    <object data="/assets/HonorsThesis_YatingZou.pdf" type="application/pdf" width=100% height=80%>
+    <object data="/assets/HonorsThesis_YatingZou.pdf" type="application/pdf" width="100%" height="100%">
         <div>No online PDF viewer installed</div>
     </object>
 </body>
