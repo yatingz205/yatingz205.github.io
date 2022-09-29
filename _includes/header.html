@@ -34,15 +34,15 @@
 		{% endif %}
 	</ul>
 	<ul class="bottom-menu">
-		{% if page.url != '/talks' %}
-			{% assign link = '/talks' %}
-			<li> <a href="{{ link | prepend: site.baseurl | prepend: site.url }}"> Talks </a> </li>
+		{% if page.url != '/CV' %}
+			{% assign link = '/CV' %}
+			<li> <a href="{{ link | prepend: site.baseurl | prepend: site.url }}"> CV </a> </li>
 		{% else %}
-			<li style="font-weight:bold;"> <a> Talks </a> </li>
+			<li style="font-weight:bold;"> <a> CV </a> </li>
 		{% endif %}
-		{% if page.url != '/blog' %}
-			{% assign link = '/blog' %}
-			<li> <a href="{{ link | prepend: site.baseurl | prepend: site.url }}"> Blog </a> </li>
+		{% if page.url != '/misc' %}
+			{% assign link = '/misc' %}
+			<li> <a href="{{ link | prepend: site.baseurl | prepend: site.url }}"> Misc </a> </li>
 		{% else %}
 			<li style="font-weight:bold;"> <a> Misc </a> </li>
 		{% endif %}
