@@ -5,6 +5,8 @@ title: CV
 
 <html>
 <body>
+    <embed src="/assets/CV_YatingZou.pdf" width="800" height="875" 
+ type="application/pdf">
     <object data="/assets/CV_YatingZou.pdf" type="application/pdf" width="100%" height="100%" style='padding-bottom:150%'>
         <div>No online PDF viewer installed</div>
     </object>
