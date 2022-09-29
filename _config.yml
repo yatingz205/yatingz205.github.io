@@ -34,9 +34,6 @@ collections:
   project:
     output: true
     permalink: /project/:name
-  CV:
-    output: true
-    permalink: /CV
   blog:
     output: true
     permalink: /blog/:name
