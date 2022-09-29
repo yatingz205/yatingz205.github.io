@@ -6,7 +6,9 @@ title: Yating Zou
 I am an intern at [UNC Center for AIDS Research (Biostatistics Core)](http://unccfar.org/portfolio/biostatistics/). 
 I am also a member of the [Precision Health and AI Research Lab](https://tarheels.live/kosoroklab/).
 
-I received my bachelor’s degree in Biostatistics and in Mathematics at the [University of North Carolina—Chapel Hill](https://www.unc.edu/) and graduated from [Gillings School of Public Health](https://sph.unc.edu/) with highest distinction in June 2022. My thesis, with [Prof. Michael Kosorok](https://mkosorok.web.unc.edu/) being my thesis advisor, is titled “A Review of Causal Average Treatment Effect and Treatment Heterogeneity Estimation with Non-finite Action.” ([link](yatingz205.github.io/assets/honorsThesis_YatingZou.pdf))
+I received Bachelor of Science in Public Health (BSPH) in Biostatistics and Bachelor of Science (BS) in Mathematics at the [University of North Carolina—Chapel Hill](https://www.unc.edu/). 
+
+I graduated from [Gillings School of Public Health](https://sph.unc.edu/) with highest distinction and highest honors in June 2022. My thesis, with [Prof. Michael Kosorok](https://mkosorok.web.unc.edu/) being my thesis advisor, is titled “A Review of Causal Average Treatment Effect and Treatment Heterogeneity Estimation with Non-finite Action.” ([link](https://yatingz205.github.io/assets/HonorsThesis_YatingZou.pdf))
 
 I am interested in
  - Precision Medicine
