@@ -4,7 +4,6 @@ type: research
 date: 2022-06-13
 imageurl: /assets/preview-mycat.png
 authors: Yating Zou
-status: Thesis
 ---
 
 
@@ -17,7 +16,7 @@ This thesis, therefore, provides a review of recent advances on this topic. The 
 
 <html>
 <body>
-    <object data="/assets/HonorsThesis_YatingZou.pdf" type="application/pdf" width="100%" height="100%">
+    <object data="/assets/HonorsThesis_YatingZou.pdf" type="application/pdf" width="100%" height="100%" style='padding-bottom:150%'>
         <div>No online PDF viewer installed</div>
     </object>
 </body>
