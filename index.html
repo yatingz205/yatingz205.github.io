@@ -1,44 +1,6 @@
 ---
 layout: default
+target: /about
 ---
 
-<section>
 
-This is some text as placeholders. 
-
-<div class="divider"></div>
-
-</section>
-
-<section>
-
-	<div class="center">
-		<h1 class="title">Recent Activites</h1>
-	</div>
-
-	<div class="divider"></div>
-
-	{% assign sorted = ((site.documents | sort: date) | reverse) %}
-	{% assign recent_activities = "" | split: "/" %}
-	{% for post in sorted limit:5 %}
-		{% assign recent_activities = recent_activities | push: post %}
-	{% endfor %}
-	{% assign recent_activities = (recent_activities | group_by: "type") %}
-	{% for group in recent_activities %}
-		{% assign anitem = group.items | first %}
-		<h3 class="code" style="text-transform: capitalize;">{{ anitem.type }}</h3>
-		{% for item in group.items %}
-			<ul>
-				<li>
-					<div class="title">
-						<a href="{{ item.url | prepend: site.baseurl | prepend: site.url }}">
-							<img src="{{ item.imageurl }}" alt="" style="width: 100%;">
-							{{ item.title }}
-						</a>
-					</div>
-				</li>
-			</ul>
-    {% endfor %}
-	{% endfor %}
-
-</section>
