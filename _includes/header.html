@@ -13,8 +13,8 @@
 <aside class="menu">
 
 	<ul class="top-menu">
-		{% if page.url != '/about' %}
-			{% assign link = '/about' %}
+		{% if page.url != '/' %}
+			{% assign link = '/' %}
 			<li> <a href="{{ link | prepend: site.baseurl | prepend: site.url }}"> About </a> </li>
 		{% else %}
 			<li style="font-weight:bold;"> <a> About </a> </li>
