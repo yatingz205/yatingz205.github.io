@@ -25,12 +25,6 @@
 		{% else %}
 			<li style="font-weight:bold;"> <a> Research </a> </li>
 		{% endif %}
-		{% if page.url != '/project' %}
-			{% assign link = '/project' %}
-			<li> <a href="{{ link | prepend: site.baseurl | prepend: site.url }}"> Project </a> </li>
-		{% else %}
-			<li style="font-weight:bold;"> <a> Project </a> </li>
-		{% endif %}
 	</ul>
 	<ul class="bottom-menu">
 		{% if page.url != '/CV' %}
