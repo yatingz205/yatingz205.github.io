@@ -84,7 +84,6 @@ blockquote {
   position: relative;
   margin: 0px auto 35px;
   text-align: center;
-  color: black;
   @media screen and (max-width: 420px) {
     .top-menu {
       width: 100%;
@@ -108,6 +107,7 @@ blockquote {
       text-align: center;
       padding: 8px;
       text-decoration: none;
+      color:black;
     }
     li a:hover {
       font-weight: bold;
