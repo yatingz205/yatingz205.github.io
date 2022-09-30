@@ -3,4 +3,4 @@ layout: page
 title: Research
 ---
 
-<a href="https://google.com" class="button">Go to Google</a>
+<a href="https://google.com" type="button">Go to Google</a>
