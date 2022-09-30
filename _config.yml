@@ -31,9 +31,6 @@ collections:
   research:
     output: true
     permalink: /research/:name
-  project:
-    output: true
-    permalink: /project/:name
   blog:
     output: true
     permalink: /blog/:name
@@ -61,11 +58,6 @@ defaults:
       layout:       "research-post"
   -
     scope:
-      type:         "project"
-    values:
-      layout:       "post"
-  -
-    scope:
       type:         "misc"
     values:
-      layout:       "post"
+      layout:       "page"
