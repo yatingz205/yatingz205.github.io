@@ -145,17 +145,7 @@ blockquote {
     &:focus + .logo-prompt {
       display: inline-block !important;
     }
-    .logo-avatar {
-    width: 80px;
-    height: 80px;
-    background: #E6E7ED;
-    text-align: center;
-    align-content: center;
-    align-items: center;
-    border-radius: 50%;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    }
+
     @media (max-width : 480px) {&:hover + .logo-prompt,
       &:focus + .logo-prompt {
         display: none !important;
