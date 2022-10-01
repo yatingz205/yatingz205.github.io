@@ -4,6 +4,4 @@ title: Miscellaneous
 ---
 
 
-<figure>
-  <img src="/assets/photo/20200104005512.jpg"/>
-</figure>
+![image info](assets/photo/20200104005512.png)
