@@ -4,4 +4,4 @@ title: Miscellaneous
 ---
 
 
-![image info](assets/photo/20200104005512.png)
+![image](assets/photo/20200104005512.png)
