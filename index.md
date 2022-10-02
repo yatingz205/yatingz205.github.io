@@ -14,6 +14,7 @@ I am interested in
  - **Precision Medicine**
  - **Causal Inference**
  - **Semi- and Non-parametric Methods**
+ - **Statistical Learning Theory**
  - **Machine Learning**
 
 Along with their applications in 
