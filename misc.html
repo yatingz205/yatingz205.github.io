@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 
 <head>
-    <link type="text/css" rel="stylesheet" src="_sass/lightgallery.css" />
+    <link type="text/css" rel="stylesheet" href="css/lightgallery.css" />
 
     <!-- lightgallery plugins -->
-    <link type="text/css" rel="stylesheet" src="_sass/lg-zoom.css" />
-    <link type="text/css" rel="stylesheet" src="_sass/lg-thumbnail.css" />
+    <link type="text/css" rel="stylesheet" href="css/lg-zoom.css" />
+    <link type="text/css" rel="stylesheet" href="css/lg-thumbnail.css" />
 
 </head>
 
@@ -17,13 +17,14 @@
     <script src="js/lg-zoom.umd.js"></script>
 </body>
 
-import lightGallery from 'lightgallery';
 
 <script type="text/javascript">
-    lightGallery(document.getElementById('animated-thumbnails-gallery'), {
-    thumbnail: true,
-    licenseKey: '0000-0000-000-0000'
-});
+    lightGallery(document.getElementById('lightgallery'), {
+        plugins: [lgZoom, lgThumbnail],
+        licenseKey: '51C4D0A7-528C48CD-B60EF5F5-5C46E083',
+        speed: 500,
+        // ... other settings
+    });
 
 </script>
 
