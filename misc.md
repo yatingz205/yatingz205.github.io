@@ -4,10 +4,6 @@ title: Miscellaneous
 ---
 
 
-![image](/assets/photo/20200104005512.jpg)
+![image](/assets/photo/nyc-street.jpg)  |  ![image](/assets/photo/nyc-museum.JPG)
 
-
-
-Solarized dark             |  Solarized Ocean
-:-------------------------:|:-------------------------:
-![image](/assets/photo/DSCF5377.png)  |  ![image](/assets/photo/DSCF2136.JPG)
+![image](/assets/photo/nyc-subway.jpg)
