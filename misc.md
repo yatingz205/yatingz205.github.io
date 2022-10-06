@@ -8,3 +8,13 @@ title: Miscellaneous
 ![image](/assets/photo/nyc-street.JPG)  |  ![image](/assets/photo/nyc-museum.JPG)
 
 ![image](/assets/photo/nyc-subway.jpg)
+
+![image](/assets/photo/sf-sea.png)
+
+![image](/assets/photo/sf-seagull.png)
+
+![image](/assets/photo/sf-bench.png)
+
+| <!-- -->    | <!-- -->    |
+:-------------------------:|:-------------------------:
+![image](/assets/photo/sf-bridge.png)  |  ![image](/assets/photo/sf-train.png)
