@@ -26,9 +26,9 @@ title: Miscellaneous
 
 ![image](/assets/photo/busan-street.JPG)
 
-| <!-- -->    | <!-- -->    |
-:-------------------------:|:-------------------------:
-![image](/assets/photo/busan-rain2.JPG)  |  ![image](/assets/photo/busan-rain.JPG)
+![image](/assets/photo/busan-rain2.JPG)  
+
+![image](/assets/photo/busan-rain.JPG)
 
 
 
