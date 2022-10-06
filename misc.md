@@ -3,11 +3,18 @@ layout: page
 title: Miscellaneous
 ---
 
-
-![image](/assets/photo/20200104005512.jpg)
-
-
-
-Solarized dark             |  Solarized Ocean
+| <!-- -->    | <!-- -->    |
 :-------------------------:|:-------------------------:
-![image](/assets/photo/DSCF5377.png)  |  ![image](/assets/photo/DSCF2136.JPG)
+![image](/assets/photo/nyc-street.JPG)  |  ![image](/assets/photo/nyc-museum.JPG)
+
+![image](/assets/photo/nyc-subway.jpg)
+
+![image](/assets/photo/sf-sea.png)
+
+![image](/assets/photo/sf-seagull.png)
+
+![image](/assets/photo/sf-bench.png)
+
+| <!-- -->    | <!-- -->    |
+:-------------------------:|:-------------------------:
+![image](/assets/photo/sf-bridge.png)  |  ![image](/assets/photo/sf-train.png)
