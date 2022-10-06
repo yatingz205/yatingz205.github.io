@@ -3,7 +3,7 @@ layout: page
 title: Miscellaneous
 ---
 
-Besides research and reading about the theoreticals, I also like to read short novels and poetry. Additionally, I like traveling and taking pictures of places and random people. Photography to me is a window to other possibilities of life, which I found quite enjoyable. 
+Besides research and reading about the theoreticals, I also like to read short novels and poetry. Additionally, I like traveling and taking pictures of places and random people. Photography to me is a window to other possibilities of life, which I found quite interesting. 
 
 
 ![image](/assets/photo/nyc-subway.jpg)
