@@ -3,6 +3,8 @@ layout: page
 title: Miscellaneous
 ---
 
+
+
 | <!-- -->    | <!-- -->    |
 :-------------------------:|:-------------------------:
 ![image](/assets/photo/nyc-street.JPG)  |  ![image](/assets/photo/nyc-museum.JPG)
@@ -17,5 +19,11 @@ title: Miscellaneous
 
 | <!-- -->    | <!-- -->    |
 :-------------------------:|:-------------------------:
-![image](/assets/photo/sf-bridge.png)  |  ![image](/assets/photo/sf-train.png)
-![image](/assets/photo/sf-glass.png)  |  ![image](/assets/photo/sf-glass2.png)
+![image](/assets/photo/sf-bridge.png)  |  ![image](/assets/photo/sf-glass.png)
+![image](/assets/photo/sf-glass2.png) | ![image](/assets/photo/sf-train.png)
+
+![image](/assets/photo/busan-street.JPG)
+
+![image](/assets/photo/busan-rain2.JPG)
+
+![image](/assets/photo/busan-rain.JPG)
