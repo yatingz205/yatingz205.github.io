@@ -33,8 +33,8 @@
 		{% else %}
 			<li style="font-weight:bold;"> <a> CV </a> </li>
 		{% endif %}
-		{% if page.url != '/misc' %}
-			{% assign link = '/misc' %}
+		{% if page.url != '/misc.html' %}
+			{% assign link = '/misc.html' %}
 			<li> <a href="{{ link | prepend: site.baseurl | prepend: site.url }}"> Misc </a> </li>
 		{% else %}
 			<li style="font-weight:bold;"> <a> Misc </a> </li>
