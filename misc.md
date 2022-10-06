@@ -20,7 +20,11 @@ title: Miscellaneous
 | <!-- -->    | <!-- -->    |
 :-------------------------:|:-------------------------:
 ![image](/assets/photo/sf-bridge.png)  |  ![image](/assets/photo/sf-glass.png)
-![image](/assets/photo/sf-glass2.png) | ![image](/assets/photo/sf-train.png)
+![image](/assets/photo/sf-glassboat.png) | ![image](/assets/photo/sf-train.png)
+
+| <!-- -->    | <!-- -->    |
+:-------------------------:|:-------------------------:
+![image](/assets/photo/sf-glass3.png)  |  ![image](/assets/photo/sf-glass4.png)
 
 ![image](/assets/photo/busan-street.JPG)
 
