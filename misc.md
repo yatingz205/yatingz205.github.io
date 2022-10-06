@@ -20,7 +20,7 @@ title: Miscellaneous
 | <!-- -->    | <!-- -->    |
 :-------------------------:|:-------------------------:
 ![image](/assets/photo/sf-bridge.png)  |  ![image](/assets/photo/sf-glass.png)
-![image](/assets/photo/sf-glassboat.png) | ![image](/assets/photo/sf-train.png)
+![image](/assets/photo/sf-glassboat.JPG) | ![image](/assets/photo/sf-train.png)
 
 | <!-- -->    | <!-- -->    |
 :-------------------------:|:-------------------------:
@@ -28,6 +28,9 @@ title: Miscellaneous
 
 ![image](/assets/photo/busan-street.JPG)
 
-![image](/assets/photo/busan-rain2.JPG)
+| <!-- -->    | <!-- -->    |
+:-------------------------:|:-------------------------:
+![image](/assets/photo/busan-rain2.JPG)  |  ![image](/assets/photo/busan-rain.JPG)
 
-![image](/assets/photo/busan-rain.JPG)
+
+
