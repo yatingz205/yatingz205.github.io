@@ -30,7 +30,9 @@ Besides research and reading about the theoreticals, I also like to read short n
 
 | <!-- -->    | <!-- -->    |
 :-------------------------:|:-------------------------:
-![image](/assets/photo/sf-city.png)  |  ![image](/assets/photo/sf-chinatown.png)
+![image](/assets/photo/sf-city2.png)  |  ![image](/assets/photo/sf-chinatown.png)
+
+![image](/assets/photo/sf-chinatown2.png)
 
 ![image](/assets/photo/busan-street.JPG)
 
