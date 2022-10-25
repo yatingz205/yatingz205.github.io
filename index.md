@@ -18,4 +18,4 @@ I am interested in
  - **Machine Learning**
 
 Along with their applications in 
- - **Cancer, AIDS, Chronic Diseases, Vaccines, and more.**
+ - **Cancer, AIDS, Chronic Diseases, Vaccines, Health Services, Social Equity, and more.**
