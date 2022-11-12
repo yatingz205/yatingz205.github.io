@@ -3,8 +3,10 @@ layout: page
 title: Research
 ---
 
+
 ## Thesis
  - **Review of Causal Average Treatment Effect and Treatment Heterogeneity Estimation with Non-finite Action (Jun 2022)**, Undergradute Honors Thesis / [pdf](/assets/HonorsThesis_YatingZou.pdf) / [slides](assets/ThesisPresentation_YatingZou.pdf) /
+
 
 ## Presentation
  - **Inference for Dynamic Treatment Regimes: Non-regular Asymptotics under Different Settings (Nov 2022)**, Educational Talk at Precision Health and AI Research (PHAIR) Lab / [slides](assets/NonregularAsymptotics_YatingZou.pdf) /
