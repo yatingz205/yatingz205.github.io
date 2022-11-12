@@ -11,11 +11,11 @@ I received Bachelor of Science in Public Health (BSPH) in Biostatistics and Bach
 In June 2022, I graduated from [Gillings School of Public Health](https://sph.unc.edu/) with highest distinction and highest honors in 1st major. My thesis, with [Prof. Michael Kosorok](https://mkosorok.web.unc.edu/) being my thesis advisor, is titled [“A Review of Causal Average Treatment Effect and Treatment Heterogeneity Estimation with Non-finite Action.”](https://yatingz205.github.io/assets/HonorsThesis_YatingZou.pdf)
 
 I am interested in
- - **Precision Medicine**
+ - **Precision Medicine (Dynamic Treatment Regimes)**
  - **Causal Inference**
  - **Semi- and Non-parametric Methods**
- - **Statistical Learning Theory**
- - **Machine Learning**
+ - **Statistical Machine Learning**
+ - **Reinforcement Learning**
 
 Along with their applications in 
  - **Cancer, AIDS, Chronic Diseases, Vaccines, Health Services, Social Equity, and more.**
