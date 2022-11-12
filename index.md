@@ -16,6 +16,7 @@ I am interested in
  - **Semi- and Non-parametric Methods**
  - **Statistical Machine Learning**
  - **Reinforcement Learning**
+ - **Predictive Inference**
 
 Along with their applications in 
  - **Cancer, AIDS, Chronic Diseases, Vaccines, Health Services, Social Equity, and more.**
