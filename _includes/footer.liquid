@@ -1,0 +1,10 @@
+{%- comment -%}
+  Local override of al_folio_core's _includes/footer.liquid.
+
+  Renders nothing: this site shows no footer at all. The gem's version hardcodes
+  a "© Copyright <year> <name>. <site.footer_text>" line, so blanking
+  `footer_text` in _config.yml alone would still leave the copyright behind.
+
+  To bring a footer back, delete this file (the gem's version takes over again)
+  and set `footer_text` in _config.yml.
+{%- endcomment -%}

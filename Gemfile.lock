@@ -23,40 +23,7 @@ GEM
       tzinfo (~> 2.0, >= 2.0.5)
     addressable (2.9.0)
       public_suffix (>= 2.0.2, < 8.0)
-    al_analytics (1.0.2)
-      jekyll (>= 3.9, < 5.0)
-      liquid (>= 4.0, < 6.0)
-    al_charts (1.0.1)
-      jekyll (>= 3.9, < 5.0)
-      liquid (>= 4.0, < 6.0)
-    al_citations (1.0.1)
-      activesupport (>= 6.0, < 8.0)
-      jekyll (>= 3.9, < 5.0)
-      nokogiri (>= 1.13, < 2.0)
-    al_comments (1.0.0)
-      jekyll (>= 3.9, < 5.0)
-      liquid (>= 4.0, < 6.0)
-    al_cookie (1.0.1)
-      jekyll (>= 3.9, < 5.0)
-      liquid (>= 4.0, < 6.0)
-    al_email_protect (1.0.1)
-      jekyll (>= 3.9, < 5.0)
-      liquid (>= 4.0, < 6.0)
-    al_ext_posts (1.0.3)
-      feedjira (>= 3.2, < 5.0)
-      httparty (>= 0.18, < 1.0)
-      jekyll (>= 3.9, < 5.0)
-      nokogiri (>= 1.13, < 2.0)
-    al_folio_bootstrap_compat (1.0.0)
-      jekyll (>= 3.9, < 5.0)
-      liquid (>= 4.0, < 6.0)
     al_folio_core (1.0.15)
-      jekyll (>= 3.9, < 5.0)
-      liquid (>= 4.0, < 6.0)
-    al_folio_cv (1.0.2)
-      jekyll (>= 3.9, < 5.0)
-      liquid (>= 4.0, < 6.0)
-    al_folio_distill (1.0.3)
       jekyll (>= 3.9, < 5.0)
       liquid (>= 4.0, < 6.0)
     al_folio_upgrade (1.0.3)
@@ -69,19 +36,7 @@ GEM
     al_img_tools (1.0.3)
       jekyll (>= 3.9, < 5.0)
       jekyll-3rd-party-libraries (~> 0.0.1)
-    al_marimo (1.0.0)
-      jekyll (>= 3.9, < 5.0)
-      liquid (>= 4.0, < 6.0)
     al_math (1.0.2)
-      jekyll (>= 3.9, < 5.0)
-      liquid (>= 4.0, < 6.0)
-    al_newsletter (1.0.0)
-      jekyll (>= 3.9, < 5.0)
-      liquid (>= 4.0, < 6.0)
-    al_rtl (1.0.0)
-      jekyll (>= 3.9, < 5.0)
-      liquid (>= 4.0, < 6.0)
-    al_search (1.0.3)
       jekyll (>= 3.9, < 5.0)
       liquid (>= 4.0, < 6.0)
     base64 (0.3.0)
@@ -102,13 +57,9 @@ GEM
       citeproc (~> 1.0, >= 1.0.9)
       csl (~> 2.0)
       observer (< 1.0)
-    classifier-reborn (2.3.0)
-      fast-stemmer (~> 1.0)
-      matrix (~> 0.4)
     colorator (1.1.0)
     concurrent-ruby (1.3.7)
     connection_pool (3.0.2)
-    crass (1.0.7)
     csl (2.2.1)
       forwardable (~> 1.3)
       namae (~> 1.2)
@@ -124,18 +75,12 @@ GEM
     cssminify2 (2.1.0)
     csv (3.3.5)
     date (3.5.1)
-    deep_merge (1.2.2)
     drb (2.2.3)
     em-websocket (0.5.3)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0)
     eventmachine (1.2.7)
     execjs (2.10.1)
-    fast-stemmer (1.0.2)
-    feedjira (4.0.2)
-      logger (>= 1.0, < 2)
-      loofah (>= 2.3.1, < 3)
-      sax-machine (>= 1.0, < 2)
     ffi (1.17.4-aarch64-linux-gnu)
     ffi (1.17.4-aarch64-linux-musl)
     ffi (1.17.4-arm-linux-gnu)
@@ -173,10 +118,6 @@ GEM
       nokogiri (>= 1.4)
     htmlcompressor (0.4.0)
     http_parser.rb (0.8.1)
-    httparty (0.24.2)
-      csv
-      mini_mime (>= 1.0.0)
-      multi_xml (>= 0.5.2)
     i18n (1.14.8)
       concurrent-ruby (~> 1.0)
     jekyll-3rd-party-libraries (0.0.1)
@@ -202,21 +143,12 @@ GEM
       safe_yaml (~> 1.0)
       terminal-table (>= 1.8, < 4.0)
       webrick (~> 1.7)
-    jekyll-archives-v2 (0.0.8)
-      activesupport
-      jekyll (>= 3.6, < 5.0)
     jekyll-cache-bust (0.0.1)
       jekyll (>= 3.6, < 5.0)
-    jekyll-email-protect (1.1.0)
     jekyll-feed (0.17.0)
       jekyll (>= 3.7, < 5.0)
-    jekyll-get-json (1.0.0)
-      deep_merge (~> 1.2)
-      jekyll (>= 3.0)
     jekyll-imagemagick (1.4.0)
       jekyll (>= 3.4)
-    jekyll-jupyter-notebook (0.0.6)
-      jekyll
     jekyll-link-attributes (2.0.1)
     jekyll-minifier (0.2.2)
       cssminify2 (~> 2.1.0)
@@ -224,9 +156,6 @@ GEM
       jekyll (~> 4.0)
       json-minify (~> 0.0.3)
       terser (~> 1.2.3)
-    jekyll-paginate-v2 (3.0.0)
-      jekyll (>= 3.0, < 5.0)
-    jekyll-regex-replace (1.1.0)
     jekyll-sass-converter (3.1.0)
       sass-embedded (~> 1.75)
     jekyll-scholar (7.3.0)
@@ -238,12 +167,9 @@ GEM
       jekyll (>= 3.7, < 5.0)
     jekyll-socials (0.0.7)
       jekyll (>= 3.6, < 5.0)
-    jekyll-tabs (1.2.1)
-      jekyll (>= 3.0, < 5.0)
     jekyll-toc (0.19.0)
       jekyll (>= 3.9)
       nokogiri (~> 1.12)
-    jekyll-twitter-plugin (2.1.0)
     jekyll-watch (2.2.1)
       listen (~> 3.0)
     jemoji (0.13.0)
@@ -264,15 +190,8 @@ GEM
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     logger (1.7.0)
-    loofah (2.25.2)
-      crass (~> 1.0.2)
-      nokogiri (>= 1.12.0)
-    matrix (0.4.3)
     mercenary (0.4.0)
-    mini_mime (1.1.5)
     minitest (5.27.0)
-    multi_xml (0.9.1)
-      bigdecimal (>= 3.1, < 5)
     namae (1.2.0)
       racc (~> 1.7)
     nokogiri (1.19.4-aarch64-linux-gnu)
@@ -296,7 +215,6 @@ GEM
       stringio
       time
       uri
-    ostruct (0.6.3)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     public_suffix (7.0.5)
@@ -324,7 +242,6 @@ GEM
       google-protobuf (~> 4.31)
     sass-embedded (1.100.0-x86_64-linux-musl)
       google-protobuf (~> 4.31)
-    sax-machine (1.3.2)
     securerandom (0.4.1)
     set (1.1.3)
     singleton (0.3.0)
@@ -354,97 +271,54 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  al_analytics (= 1.0.2)
-  al_charts (= 1.0.1)
-  al_citations (= 1.0.1)
-  al_comments (= 1.0.0)
-  al_cookie (= 1.0.1)
-  al_email_protect (= 1.0.1)
-  al_ext_posts (= 1.0.3)
-  al_folio_bootstrap_compat (= 1.0.0)
   al_folio_core (= 1.0.15)
-  al_folio_cv (= 1.0.2)
-  al_folio_distill (= 1.0.3)
   al_folio_upgrade (= 1.0.3)
   al_icons (= 1.0.0)
   al_img_tools (= 1.0.3)
-  al_marimo (= 1.0.0)
   al_math (= 1.0.2)
-  al_newsletter (= 1.0.0)
-  al_rtl (= 1.0.0)
-  al_search (= 1.0.3)
-  classifier-reborn
   css_parser
   jekyll
   jekyll-3rd-party-libraries
-  jekyll-archives-v2
   jekyll-cache-bust
-  jekyll-email-protect
   jekyll-feed
-  jekyll-get-json
   jekyll-imagemagick
-  jekyll-jupyter-notebook
   jekyll-link-attributes
   jekyll-minifier
-  jekyll-paginate-v2
-  jekyll-regex-replace
   jekyll-scholar
   jekyll-sitemap
   jekyll-socials
-  jekyll-tabs
   jekyll-terser!
   jekyll-toc
-  jekyll-twitter-plugin
   jemoji
   observer
-  ostruct
 
 CHECKSUMS
   activesupport (7.2.3.1) sha256=11ebed516a43a0bb47346227a35ebae4d9427465a7c9eb197a03d5c8d283cb34
   addressable (2.9.0) sha256=7fdf6ac3660f7f4e867a0838be3f6cf722ace541dd97767fa42bc6cfa980c7af
-  al_analytics (1.0.2) sha256=0c8e0c029b1a28401d21ed9b56033036697e61722a0d8867f33c30010ad738d6
-  al_charts (1.0.1) sha256=ce26374c2b1159ae0d65dc7999730be700a9ee486002ae14cb480eef70580885
-  al_citations (1.0.1) sha256=308cfd4cd73c8dc6d24c0214f424b61606b3a393bdb899394fce80dd647cba59
-  al_comments (1.0.0) sha256=1da87a29b55e4d9fd62d380200af9671f10ae4a84e3259828588498d8f3210e5
-  al_cookie (1.0.1) sha256=2420241497b1fb165311ba1c9e059a9025586925b65dbba429aee225bd91a67f
-  al_email_protect (1.0.1) sha256=04d1e9b19a47d26e6fa238baba197165653002c788b60525fef093ee1a3989e5
-  al_ext_posts (1.0.3) sha256=c4956d36071958d30de14f6c368863d3e4190dfe312dba08ff79aa685292420d
-  al_folio_bootstrap_compat (1.0.0) sha256=c210ff3087f17344dc864fa9594c737e947b23c6cae9fab3dbd37a87090b98a8
   al_folio_core (1.0.15) sha256=eee5d0afefab5d3e8747b615890d760ed0ab01a1210991118709c4e969ad1326
-  al_folio_cv (1.0.2) sha256=d9b8d3624c0c707a04deaa41972fa88395fa164419bccc44e2dc2488400022fa
-  al_folio_distill (1.0.3) sha256=3feb669dd669effec127e1be5385158c5f98062c510980b5c9c802227ec2c247
   al_folio_upgrade (1.0.3) sha256=434ffddb27705852eae0bcaa01a8d007e0ef65472a989d1a33ae759f910f4709
   al_icons (1.0.0) sha256=7a7b6428d18e77b039aa1ae765a3faed0ae27cb646a08c1009b145c31ca5ef2d
   al_img_tools (1.0.3) sha256=c50dfa206bb4459925cbfc0e7d03b326e7cb1c282200d5d110b6595f4d661cf7
-  al_marimo (1.0.0) sha256=bbd8ce9650c7e8a3b35cbbde8d98eba983f132647f316b3ba2a9bd8abf502434
   al_math (1.0.2) sha256=c9fa6f3e343c0d35782d77fe386461ceff7d12186d9b51e6c92bb186b3d60781
-  al_newsletter (1.0.0) sha256=27c914f5fcd0c7fac51a513ab11de7123f05de7ba834206a68ddf2588ede96d3
-  al_rtl (1.0.0) sha256=dffed3cb05acf0e4f96e7ee2d51cb05fc83a428e0d5e4d697c5da4b7c3fe0f0b
-  al_search (1.0.3) sha256=70e846081b57a3494dd41e6bc8e1af13997200c5c28744f2449a8ebe07f79a8a
   base64 (0.3.0) sha256=27337aeabad6ffae05c265c450490628ef3ebd4b67be58257393227588f5a97b
   benchmark (0.5.0) sha256=465df122341aedcb81a2a24b4d3bd19b6c67c1530713fd533f3ff034e419236c
   bibtex-ruby (6.2.0) sha256=d610eba78d6adf503a843daf144644449fb34e7c3f4a75e9ab67fae5dfd7c69a
   bigdecimal (4.1.2) sha256=53d217666027eab4280346fba98e7d5b66baaae1b9c3c1c0ffe89d48188a3fbd
   citeproc (1.1.0) sha256=278e6b8948133e82bef1c8204a1f88ca7adaa8744b9a283fe73e8f4cd0b53b95
   citeproc-ruby (2.1.8) sha256=192ce6525235adaa60d1dbc3f1b10b0839e86d98a94278736b807e234b3572e9
-  classifier-reborn (2.3.0) sha256=e2236322de42b9c8d45d88a951cb0d76e210afa3bb8658b7b5802e2df41ef61c
   colorator (1.1.0) sha256=e2f85daf57af47d740db2a32191d1bdfb0f6503a0dfbc8327d0c9154d5ddfc38
   concurrent-ruby (1.3.7) sha256=4412caec3a5ea2e5fdc52076724c071a81f2c0593d83b2ac8cbb8ca63b3151b0
   connection_pool (3.0.2) sha256=33fff5ba71a12d2aa26cb72b1db8bba2a1a01823559fb01d29eb74c286e62e0a
-  crass (1.0.7) sha256=94868719948664c89ddcaf0a37c65048413dfcb1c869470a5f7a7ceb5390b295
   csl (2.2.1) sha256=624352f1f6f51f1e0b155bd2501ce423f03264495ec259e65c26e00872a195a2
   csl-styles (2.0.2) sha256=a48007d8a60307825de140dc2adaacc0b7186f2d1042f7e839eb47fce051de98
   css_parser (1.22.0) sha256=f274988a40c6178305530d60e7deb5162f7b5538b701b61b5488fc703e5b40c1
   cssminify2 (2.1.0) sha256=406a0b95fdaab60132c6f1fbb47b4a30f9572d2ef523f806fb94a530d78c2bb1
   csv (3.3.5) sha256=6e5134ac3383ef728b7f02725d9872934f523cb40b961479f69cf3afa6c8e73f
   date (3.5.1) sha256=750d06384d7b9c15d562c76291407d89e368dda4d4fff957eb94962d325a0dc0
-  deep_merge (1.2.2) sha256=83ced3a3d7f95f67de958d2ce41b1874e83c8d94fe2ddbff50c8b4b82323563a
   drb (2.2.3) sha256=0b00d6fdb50995fe4a45dea13663493c841112e4068656854646f418fda13373
   em-websocket (0.5.3) sha256=f56a92bde4e6cb879256d58ee31f124181f68f8887bd14d53d5d9a292758c6a8
   eventmachine (1.2.7) sha256=994016e42aa041477ba9cff45cbe50de2047f25dd418eba003e84f0d16560972
   execjs (2.10.1) sha256=abe0ae028467eb8e30c10814eb934d07876a691aae7e803d813b7ce5a75e73f1
-  fast-stemmer (1.0.2) sha256=d0aa9fd9cfbca836a09d8abb122552ac8234130271a3b0da1cb077323d650819
-  feedjira (4.0.2) sha256=3e7a90d24fd66eddc809539e637a86a02de1a7e038cd40157e916ed2f3b5ff71
   ffi (1.17.4-aarch64-linux-gnu) sha256=b208f06f91ffd8f5e1193da3cae3d2ccfc27fc36fba577baf698d26d91c080df
   ffi (1.17.4-aarch64-linux-musl) sha256=9286b7a615f2676245283aef0a0a3b475ae3aae2bb5448baace630bb77b91f39
   ffi (1.17.4-arm-linux-gnu) sha256=d6dbddf7cb77bf955411af5f187a65b8cd378cb003c15c05697f5feee1cb1564
@@ -466,29 +340,20 @@ CHECKSUMS
   html-pipeline (2.14.3) sha256=8a1d4d7128b2141913387cac0f8ba898bb6812557001acc0c2b46910f59413a0
   htmlcompressor (0.4.0) sha256=4630cf8ed46b563f0b49cc6028a3fe8c17a9067f2becd7c3a2aa5aaacefb1f9e
   http_parser.rb (0.8.1) sha256=9ae8df145b39aa5398b2f90090d651c67bd8e2ebfe4507c966579f641e11097a
-  httparty (0.24.2) sha256=8fca6a54aa0c4aa4303a0fd33e5e2156175d6a5334f714263b458abd7fda9c38
   i18n (1.14.8) sha256=285778639134865c5e0f6269e0b818256017e8cde89993fdfcbfb64d088824a5
   jekyll (4.4.1) sha256=4c1144d857a5b2b80d45b8cf5138289579a9f8136aadfa6dd684b31fe2bc18c1
   jekyll-3rd-party-libraries (0.0.1) sha256=331f8d53adbb532a27705d9d4fb719c7f306247c56531fa22c0178f4a445a692
-  jekyll-archives-v2 (0.0.8) sha256=5584088b4bd188a6099a2f6940c223f037ddb30e70890fcca1da299395584a7d
   jekyll-cache-bust (0.0.1) sha256=538ffe6d48f56d933b435bf32d4fef19ff1082cae7d6d8bc737fc13a9c86ba8c
-  jekyll-email-protect (1.1.0) sha256=00d620939c710788ae3f71188ef913e0aa7ff0a5a39f48249213ea6215558c8d
   jekyll-feed (0.17.0) sha256=689aab16c877949bb9e7a5c436de6278318a51ecb974792232fd94d8b3acfcc3
-  jekyll-get-json (1.0.0) sha256=f6b076a93de9cace89a88617b494bea10e6dbb86331c293d663d37d9b9ae7522
   jekyll-imagemagick (1.4.0) sha256=dcf4ae46ffbeabfac584a5256821e39fc5fae8d651fd5c4a56fef3a2061a7ef4
-  jekyll-jupyter-notebook (0.0.6) sha256=33f757eaad9035bebc5309e23ce2274db089ae8a0d002a53c3acbc5265d322cd
   jekyll-link-attributes (2.0.1) sha256=e25b12e3c2a2960c8cfd9ab33e8df9aa3c4ba86491dbeec48f3cb11b0a0f216d
   jekyll-minifier (0.2.2) sha256=f0a182b98b369492b9d93f1dd064223cf04a10ba31c49e1535f28fe35764ee19
-  jekyll-paginate-v2 (3.0.0) sha256=001be6c1963caa41fed9c2f43b0d47201defa0395381eb8830487c1c2fc4f4e3
-  jekyll-regex-replace (1.1.0) sha256=3738e6a0aa07dd3f9b7369e6e38e5d245c623bbd70c31b21e7838c654377a00c
   jekyll-sass-converter (3.1.0) sha256=83925d84f1d134410c11d0c6643b0093e82e3a3cf127e90757a85294a3862443
   jekyll-scholar (7.3.0) sha256=d912e60aa5ab342fb4322772f02674152e2799375612a2aa5f9b2228728fd09b
   jekyll-sitemap (1.4.0) sha256=0de08c5debc185ea5a8f980e1025c7cd3f8e0c35c8b6ef592f15c46235cf4218
   jekyll-socials (0.0.7) sha256=813448f79182fa5aa05a87e2b7cfec3d9a55660a323f082e249a47a84f2a7518
-  jekyll-tabs (1.2.1) sha256=e7e0f05d1180c9651318fb5834a0c745a613b4253e9699a662b63cc3d39cbc4d
   jekyll-terser (0.2.3)
   jekyll-toc (0.19.0) sha256=8a8270f7e8e3d849e2035710b1713d0af5e2185a4bfaca70f9192ecf5ac50668
-  jekyll-twitter-plugin (2.1.0) sha256=d25ee86813705244dcec3163d9a110a1c0216e157dcf6cf88ab57cf389887acd
   jekyll-watch (2.2.1) sha256=bc44ed43f5e0a552836245a54dbff3ea7421ecc2856707e8a1ee203a8387a7e1
   jemoji (0.13.0) sha256=5d4c3e8e2cbbb2b73997c31294f6f70c94e4d4fade039373e86835bcf5529e7c
   json (2.19.9) sha256=9b9025b7cdddafa38d316eca0b2358488e42d417045c1b90d216a9fefe46b79a
@@ -499,12 +364,8 @@ CHECKSUMS
   liquid (4.0.4) sha256=4fcfebb1a045e47918388dbb7a0925e7c3893e58d2bd6c3b3c73ec17a2d8fdb3
   listen (3.10.0) sha256=c6e182db62143aeccc2e1960033bebe7445309c7272061979bb098d03760c9d2
   logger (1.7.0) sha256=196edec7cc44b66cfb40f9755ce11b392f21f7967696af15d274dde7edff0203
-  loofah (2.25.2) sha256=2007f746959ac65552456e04b433e83deb22759ab38c838b4445c70e43425918
-  matrix (0.4.3) sha256=a0d5ab7ddcc1973ff690ab361b67f359acbb16958d1dc072b8b956a286564c5b
   mercenary (0.4.0) sha256=b25a1e4a59adca88665e08e24acf0af30da5b5d859f7d8f38fba52c28f405138
-  mini_mime (1.1.5) sha256=8681b7e2e4215f2a159f9400b5816d85e9d8c6c6b491e96a12797e798f8bccef
   minitest (5.27.0) sha256=2d3b17f8a36fe7801c1adcffdbc38233b938eb0b4966e97a6739055a45fa77d5
-  multi_xml (0.9.1) sha256=7ce766b59c17241ed62976caeae1fae9b2431b263398c35396239a68c4a64e57
   namae (1.2.0) sha256=3541ce4b086fd4981d2376630c03e284402bfe1cdbab4e50e2222a72aeb9d59d
   nokogiri (1.19.4-aarch64-linux-gnu) sha256=1269fb644a6de405057a53dd5c762b1209b43ca7424f839454d3dbc677c31a8f
   nokogiri (1.19.4-aarch64-linux-musl) sha256=35c65b9ce72b3bb03207bdbe7067915019dc18c1b9b59139684bd6690fdd01af
@@ -516,7 +377,6 @@ CHECKSUMS
   nokogiri (1.19.4-x86_64-linux-musl) sha256=17dfb7c1fa194ae02fbf7c51a7afc8d278045ab3fdacfd86f91d02d7b274470b
   observer (0.1.2) sha256=d8a3107131ba661138d748e7be3dbafc0d82e732fffba9fccb3d7829880950ac
   open-uri (0.5.0) sha256=7b4f06fdac39e6946aed15a8da82531580882fbbec80438adcb7c30d388887ca
-  ostruct (0.6.3) sha256=95a2ed4a4bd1d190784e666b47b2d3f078e4a9efda2fccf18f84ddc6538ed912
   pathutil (0.16.2) sha256=e43b74365631cab4f6d5e4228f812927efc9cb2c71e62976edcb252ee948d589
   public_suffix (7.0.5) sha256=1a8bb08f1bbea19228d3bed6e5ed908d1cb4f7c2726d18bd9cadf60bc676f623
   racc (1.8.1) sha256=4a7f6929691dbec8b5209a0b373bc2614882b55fc5d2e447a21aaa691303d62f
@@ -534,7 +394,6 @@ CHECKSUMS
   sass-embedded (1.100.0-x86_64-darwin) sha256=3db80c837a60712de3461d5aa1be43c7056a0584d7182a8ae7a8996d64ab46d3
   sass-embedded (1.100.0-x86_64-linux-gnu) sha256=58dd0a8a4f0dd78881b90d8b0e4d0eed042d54865b19b71384d91091ade93e18
   sass-embedded (1.100.0-x86_64-linux-musl) sha256=03dbee81bf93e770c725caf0c895e04c7b049ebef56b8a7002fcf21e6bedf7c5
-  sax-machine (1.3.2) sha256=a1112678039eea4c402827ca0d377744e0f882fd6386f29f7b0023d938750d3a
   securerandom (0.4.1) sha256=cc5193d414a4341b6e225f0cb4446aceca8e50d5e1888743fac16987638ea0b1
   set (1.1.3) sha256=12bbbd31c8b177d55ac0314bcc7f4c473276b06e8a2dcfdc14326e73ce7769ce
   singleton (0.3.0) sha256=83ea1bca5f4aa34d00305ab842a7862ea5a8a11c73d362cb52379d94e9615778

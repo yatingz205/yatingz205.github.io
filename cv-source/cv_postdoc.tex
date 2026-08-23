@@ -1,0 +1,455 @@
+% PUBLIC / BLINDED CV -- phone number and personal email removed; the header
+% links to the website, Google Scholar and GitHub instead. Keep this variant in
+% sync with your private CV. Build: see cv-source/README.md
+\documentclass[11pt]{scrartcl}
+\usepackage{lmodern}
+\usepackage{comment}
+\usepackage{amssymb,amsmath}
+\usepackage{longtable}
+\usepackage{setspace}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% Loaded AFTER the fontspec/mathspec block: both icon packages pull in fontspec
+% themselves, and loading them first makes mathspec's own
+% \RequirePackage[...]{fontspec} raise "Option clash for package fontspec".
+\usepackage{academicons, fontawesome}
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
+\usepackage[unicode=true]{hyperref}
+\hypersetup{
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage[margin=1in]{geometry}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+\usepackage[normalem]{ulem}
+
+\usepackage[
+    sorting=ydnt,
+    backend=biber, 
+    style=numeric, 
+    defernumbers=true,
+    maxcitenames=2, 
+    uniquelist=false,
+    giveninits=true,
+    maxbibnames=8,
+    minbibnames=8,
+    url=true,
+    doi=true,
+    sortcites=false, 
+    uniquename=false 
+]{biblatex}
+% Shared with the website's publications page -- single source of truth.
+\addbibresource{../_bibliography/references_postdoc.bib}
+\usepackage{xurl}
+\usepackage{xpatch}
+
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map{
+      \step[fieldsource=keywords, match=\regexp{firstauthor}, final]
+      \step[fieldset=usera, fieldvalue={†}]
+    }
+    \map{
+      \step[fieldsource=keywords, match=\regexp{senior}, final]
+      \step[fieldset=userb, fieldvalue={‡}]
+    }
+  }
+}
+\renewcommand*{\mkbibnamefamily}[1]{%
+  \ifboolexpr{
+    test {\ifdefstring{\namepartfamily}{Zou}} or
+    test {\ifdefstring{\namepartfamily}{Zitovsky}}
+  }{%
+    \ifdefstring{\namepartfamily}{Zou}{\textbf{#1}}{#1}%
+    \iffieldundef{usera}{}{\textsuperscript{\textbf{†}}}%
+    \iffieldundef{userb}{}{\textsuperscript{\textbf{‡}}}%
+  }{#1}%
+}
+\renewcommand*{\mkbibnamegiven}[1]{%
+  \ifboolexpr{
+    test {\ifdefstring{\namepartgiven}{Y}} or
+    test {\ifdefstring{\namepartgiven}{Yating}}
+  }{\textbf{#1}}{#1}%
+}
+
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\defaultfontfeatures{Scale=MatchLowercase,Ligatures={TeX}}
+\setmainfont{Liberation Serif}
+\setsansfont{Liberation Serif}
+\setmonofont[SmallCapsFont={Liberation Serif}]{Liberation Serif}
+\usepackage{hyperref}
+\usepackage{multirow}
+\usepackage{xcolor}
+\definecolor{cvlinkcolor}{RGB}{6,125,233}
+\hypersetup{colorlinks,linkcolor=cvlinkcolor,citecolor=cvlinkcolor,urlcolor=cvlinkcolor,bookmarksnumbered,bookmarks=false}
+% \subsection titles use \MakeUppercase, which hyperref cannot expand when it builds
+% PDF bookmark strings ("Undefined control sequence ... UppercaseUnsupportedInPdfStrings").
+% Neutralise it for pdfstring expansion only; printed headings are unaffected.
+\pdfstringdefDisableCommands{\let\MakeUppercase\relax}
+\renewcommand\labelenumi{[\theenumi]}
+
+\usepackage{enumitem}
+\setlist[enumerate]{leftmargin=*, itemsep=0.25\baselineskip, topsep=0.25\baselineskip, parsep=0pt, partopsep=0pt}
+
+
+\date{}
+
+\begin{document}
+
+%%%\centering
+{\def\arraystretch{1.1}\tabcolsep=0pt
+\begin{longtable}{p{0.70\linewidth}p{0.1\linewidth}p{0.2\linewidth}}
+
+  \multirow{1}{*}{\LARGE \textbf{Yating Zou}} &  &  \\
+  
+  & & \\
+  
+  Department of Biostatistics & \multicolumn{1}{r}{\faGlobe\;\;} & \multicolumn{1}{l}{\href{https://yatingz205.github.io}{yatingz205.github.io}} \\
+  
+  Gillings School of Public Health & \multicolumn{1}{r}{\aiGoogleScholar\;\;} & \multicolumn{1}{l}{\href{https://scholar.google.com/citations?user=8iEtZZoAAAAJ&hl=en}{Google Scholar}} \\
+  
+  University of North Carolina at Chapel Hill & \multicolumn{1}{r}{\faGithub\;\;} & \multicolumn{1}{l}{\href{https://github.com/yatingz205}{github.com/yatingz205}} \\
+  
+  UNC Gillings Center for Artificial Intelligence and Public Health (CAIPH) & & \\
+\end{longtable}%
+}
+
+\subsection{\MakeUppercase{Research Areas}}\label{research-interests}
+{\setstretch{1.2}
+My research develops \uline{nonparametric and semiparametric methodology} at the interface of distributional estimation, kernel methods, and reinforcement learning, with a focus on supporting \uline{sequential decision processes} for real-world systems in \uline{structured environments}, including dependent, missing, and hierarchical data, complex survey designs and adaptive trials.
+}
+
+
+\subsection{\MakeUppercase{Education}}\label{education}
+\textbf{\textsuperscript{†}} \emph{Indicates expected}
+%%%\centering
+\noindent
+{\def\arraystretch{1.1}\tabcolsep=0pt
+\begin{longtable}{p{0.15\linewidth}p{0.85\linewidth}}
+
+  \multirow{2}{*}[0.85em]{2023--2027 \textsuperscript{\textbf{\textdagger}}} & Ph.D. in Biostatistics, University of North Carolina at Chapel Hill \\
+  & Dissertation: ``From Design to Decision: Distributional Estimation and Sequential Decision Optimization under Structured Environments'' \\
+  & Advisor: Michael R. Kosorok; \\
+  & Other Committee Members: Michael H. Hudgens, Didong Li, Ivana Malenica, Paul Lanier \\[0.5em]
+
+  2019--2022 & B.S.P.H. in Biostatistics, University of North Carolina at Chapel Hill \\
+        & Honors Thesis: ``A Review of Causal Average Treatment Effect and Treatment Heterogeneity Estimation with Non-finite Action'' \\
+        & Thesis Advisor: Michael R. Kosorok; \\
+        & Other Committee Members: Donglin Zeng, Jane Monaco \\[0.5em]
+
+  2018--2022 & B.S. in Mathematics, University of North Carolina at Chapel Hill \\
+\end{longtable}%
+}
+
+
+
+\subsection{\MakeUppercase{Publications}}\label{publications}
+
+\textbf{\textsuperscript{\dag}} \emph{First or joint-first author with equal contribution}\\
+\textbf{\textsuperscript{\ddag}} \emph{Joined as senior statistician}
+
+\nocite{*}
+\textbf{Methodology} \\
+\textit{Submitted / preprint}
+{
+\setlength{\bibitemsep}{0.25\baselineskip}
+\setlength{\bibparsep}{0pt}
+\printbibliography[keyword=methods, heading=none]
+}
+\textit{In preparation (available upon request)}
+{
+\setlength{\bibitemsep}{0.25\baselineskip}
+\setlength{\bibparsep}{0pt}
+\printbibliography[keyword=inprep, heading=none]
+}
+
+\textbf{Applied \& Collaborative}\\
+\textit{Published}
+{
+\setlength{\bibitemsep}{0.25\baselineskip}
+\setlength{\bibparsep}{0pt}
+\printbibliography[keyword=appPub, heading=none]
+}
+\textit{Submitted / preprint}
+{
+\setlength{\bibitemsep}{0.25\baselineskip}
+\setlength{\bibparsep}{0pt}
+\printbibliography[keyword=appSub, heading=none]
+}
+\textit{In preparation (available upon request)}
+{
+\setlength{\bibitemsep}{0.25\baselineskip}
+\setlength{\bibparsep}{0pt}
+\printbibliography[keyword=appPre, heading=none]
+}
+
+
+\subsection{\MakeUppercase{Teaching Experience}}\label{teaching-assistant}
+\emph{Weekly one-hour office hour + homework assignment marking}\\
+\textbf{\textsuperscript{†}} \emph{Two guest lectures}
+%%%\centering
+\noindent
+{\def\arraystretch{1.2}\tabcolsep=0pt
+\begin{longtable}{p{0.15\linewidth}p{0.65\linewidth}p{0.2\linewidth}}
+
+   2026 Fall & BIOS 791\textsuperscript{\textbf{\textdagger}}: Empirical Processes and Semiparametric Inference & Ph.D. elective \\
+   
+   2025 Fall & BIOS 777: Precision Medicine & Ph.D. elective \\
+
+   2024 Spring & BIOS 791: Empirical Processes and Semiparametric Inference & Ph.D. elective \\
+  
+   2024 Spring & BIOS 500H: Introduction to Biostatistics & Undergraduate core \\
+
+   2023 Fall & BIOS 760: Advanced Probability and Statistical Inference I & Ph.D. core \\
+  
+   2022 Spring & MATH 521: Advanced Calculus I (Real Analysis) & Undergraduate core \\
+\end{longtable}%
+}
+
+
+\subsection{\MakeUppercase{Presentations}}
+\label{presentation}
+\textbf{\textsuperscript{†}} \emph{Forthcoming}
+
+\textbf{Invited / Contributed Talk}
+\begin{enumerate}
+  %%%%%\leftskip-0.25in % for bullets
+  %\leftskip-0.13in % for numbers
+  \item ``Asymptotics of Nonparametric Estimation under general non-monotone MAR missingness''\\
+  CFE-CMStatistics 2026, Berlin, Germany$^\textsubscript{†}$ (presenting by Jeffrey N\"af)
+  
+  \item ``Test-Set Validation of Dynamic Treatment Regimes for Indefinite-Horizon Survival Outcomes''\\
+  JSM 2026, Boston, USA, (presented by Anthony Wang)\\
+  Received the Zink Scholarship in Biostatistics
+  
+  \item ``Distributional Random Forest for Complex Survey Designs'' \\
+  JSM 2025, Nashville, USA
+  
+  \item ``Preference Integrated Dynamic Treatment Regimes: Methodology and Application to SMARTs''\\
+  CFE-CMStatistics 2025, London, UK
+
+  \item ``Kaposi Sarcoma Herpesvirus in Plasma: Association with Treatment Failure in Limited-Stage AIDS-KS''\\
+  CROI 2026 (Conference on Retroviruses and Opportunistic Infections), Colorado, USA
+\end{enumerate}
+
+
+\textbf{Poster Presentations}
+\begin{enumerate}
+  %%%%%\leftskip-0.25in % for bullets
+  % \leftskip-0.13in % for numbers
+  \item ``Preventing Youth Mental Health Emergencies in NC: the Dynamic Treatment Regime Approach''\\
+  Annual Research Meeting 2026, Seattle, USA\\
+  UNC Data Science Symposium 2025, North Carolina, USA
+
+  \item ``An HIV-1 risk assessment tool for women aged 15-49 in African countries: A machine-learning approach across 15 pooled nationally representative surveys''\\
+  CROI 2024 (Conference on Retroviruses and Opportunistic Infections), Colorado, USA\\
+  UNC Data Science Symposium 2024, North Carolina, USA
+
+\end{enumerate}
+
+\subsection{\MakeUppercase{Software and Tools}}\label{software}
+\noindent
+{\def\arraystretch{1.2}
+
+\textit{\textbf{A SMART Trial Analysis Pipeline: Estimation,  Inference, and Interpretation}} \\
+\texttt{R} $\mid$ \texttt{targets} $\mid$ \texttt{Quarto} $\mid$ \texttt{tidymodels}\\
+{\setstretch{1.2}
+Targets-orchestrated R pipeline for the Biomarkers for Evaluating Spine Treatments (BEST) trial (Registration ID: \href{https://clinicaltrials.gov/study/NCT05396014}{NCT05396014}), estimating dynamic treatment regimes via Q-learning and super-learner ensembles, with CV-TMLE inference, variable-importance and interpretable modeling, and reproducible reporting.
+}\\[0.3em]
+\emph{
+UNC Gillings Center for Artificial Intelligence and Public Health (CAIPH)\\
+UNC Collaborative Studies Coordinating Center (CSCC)}\\
+
+
+\textit{\textbf{LLM Empowered Validation Agent for Health Resource Tracking in North Carolina}} \\
+\texttt{Python} $\mid$ \texttt{LangChain} $\mid$ \texttt{RAG} $\mid$ \texttt{Provider-agnostic LLM} \\
+{\setstretch{1.2}
+A provider-agnostic, tool-using LLM agent that validates healthcare-location records for MAHEC's \href{https://mahec.net/regional-initiatives/itacc-resource-map}{FindMy\-CareWNC platform}. Automatically flagging out-of-date entries and detecting new locations, with a human-in\-the-loop review interface for performance monitoring.
+}\\[0.3em]
+\emph{
+UNC Gillings Center for Artificial Intelligence and Public Health (CAIPH)\\ 
+Mountain Area Health Education Center (MAHEC)
+}
+
+\subsection{\MakeUppercase{Honors and Awards}}\label{honours-and-awards}
+%%%\centering
+\noindent
+{\def\arraystretch{1.2}\tabcolsep=0pt
+\begin{longtable}{p{0.15\linewidth}p{0.85\linewidth}}
+
+  2025 & Travel Award, Biostatistics Department at Gillings School of Public Health \\
+  
+  2025 & Gillings School Graduate Student Teaching Assistant Award \\
+
+  2023 & Delta Omega Honor Society for Public Health, Theta Chapter \\
+
+  2023 & Highest Distinction and Highest Honor, UNC-CH \\
+  
+  2022 & Salisbury Family Senior Thesis Research Award \\
+\end{longtable}%
+}
+
+
+\subsection{\MakeUppercase{Professional Experience}}
+%%%\centering
+\noindent
+{\def\arraystretch{1.1}\tabcolsep=0pt
+\begin{longtable}{p{0.15\linewidth}p{0.85\linewidth}}
+
+    2026  & \textit{Graduate Research Assistant}\\
+     & Gillings Faculty AI Workshop Series \\
+     & Focus: Supporting a Dean-funded AI training workshop series for Gillings faculty, in partnership with AWS (Amazon), spanning omics, agentic AI, multimodal data integration, and mHealth applications. \\
+
+    2025--Present & \textit{Graduate Research Assistant}\\
+     & UNC Gillings Center for Artificial Intelligence and Public Health (CAIPH), \\
+     & Focus: Methodological and application research in machine learning and precision medicine.  \\
+
+    2022--2025 & \textit{Graduate Research Assistant} \\
+     & UNC Center for AIDS Research (CFAR), Biostatistics Core  \\
+     & Focus: Sample size and power calculation, statistical analysis plan (SAP) development, data collection instruments (REDCap), and statistical analysis of interdisciplinary studies. \\
+
+    2019--2020    & \textit{Undergraduate Research Assistant} \\
+    & UNC Lineberger Comprehensive Cancer Center  \\
+    & Focus: Differential expression analysis of tumor RNA-seq data from the TCGA database. \\
+
+    2021    & \textit{International Investment Deputy Department Intern}\\
+    & Fosun Pharmaceutical Co. Ltd. \\
+    & Focus: Cross-border pharmaceutical M\&A due diligence and international market analysis. \\
+
+    2020--2021 & \textit{Statistical Programming Intern} \\
+    & Meta Clinical Technology Co. Ltd. \\
+    & Focus: SAS macros, aCRF development, and statistical programming for oncology clinical trials under CDISC standards and ICH E3, E6, and E9 principles. \\
+\end{longtable}%
+}
+
+\subsection{\MakeUppercase{Technical Skills}}\label{technical-skills}
+\noindent
+{\def\arraystretch{1.2}\tabcolsep=0pt
+\begin{longtable}{p{0.3\linewidth}p{0.7\linewidth}}
+    {Statistical computing:} & R (advanced; package development), Python (proficient; PyTorch), \\ 
+    & SAS (advanced; macros) \\
+    
+    {Reproducibility \& tooling:} & Git/GitHub, LaTeX/Overleaf/BibLaTeX, Beamer, SLURM/HPC \\
+    
+    {Clinical data:} & REDCap, CDISC standards, ICH E3/E6/E9 \\
+    
+    {Languages:} & English (fluent), Mandarin Chinese (native)
+\end{longtable}%
+}
+
+
+\subsection{\MakeUppercase{Research Mentoring}}
+%%%\centering
+\noindent
+{\def\arraystretch{1.2}\tabcolsep=0pt
+\begin{longtable}{p{0.15\linewidth}p{0.85\linewidth}}
+    2026-Present & \textit{Neha Katakamshetty}, Undergraduate, Chemistry, UNC-CH; \\
+    & project: multiagent and hierarchical reinforcement learning \\
+    2026-Present & \textit{Anthony Wang}, 
+    Graduate, Biostatistics, UNC-CH; \\
+    & project: dynamic treatment regimes with survival outcomes \\
+\end{longtable}%
+}
+
+
+\subsection{\MakeUppercase{Service and Leadership}}
+%%%\centering
+\noindent
+{\def\arraystretch{1.2}\tabcolsep=0pt
+\begin{longtable}{p{0.15\linewidth}p{0.85\linewidth}}
+
+    2025--Present & \textit{President}, UNC-CH ASA Student Chapter \\
+
+    2025--Present  & \textit{Student volunteer}, UNC-CH Biostatistics Department Computing Committee\\
+
+    2025 & \textit{Panelist}, Student Panel: Navigating your Research Journey at UNC Biostatistics \\
+
+    2025 & \textit{Panel Moderator}, Career Development: Bridging the Gap Between Academia and Industry. \\
+
+    2024 & \textit{Vice President}, UNC-CH ASA Student Chapter \\
+
+    2023 & \textit{Poster judge}, UNC-CH Biostatistics Undergraduate Summer Internships (BUSI) program \\
+
+    2022 & \textit{Instructor volunteer}, Girls Talk Math at UNC-CH \\
+
+    2023-2025 & \textit{Student} \textit{volunteer}, Gillings Big Buddy Program for Incoming Students (2023-2025) \\
+    
+    On-going & \textit{Reviewer}, JRSS-C (1x), Annals of Statistics (1x), The American Statistician (1x)\\
+\end{longtable}%
+}
+
+
+% ---------------------------------------------------------------------------
+% REFERENCES -- commented out of the PUBLIC variant.
+% This block lists three colleagues' personal email addresses. They agreed to
+% act as referees on a CV sent to search committees, not on a page indexed by
+% search engines, so publishing their addresses would expose third-party contact
+% details without consent. Keep this section in the private CV; leave it
+% commented here. Restore by deleting the \begin{comment}/\end{comment} lines.
+% Their email addresses have also been stripped from this source: commenting a block
+% out hides it from the PDF but NOT from a public git repo. Re-add them only in a
+% private copy.
+% ---------------------------------------------------------------------------
+\begin{comment}
+\subsection{\MakeUppercase{References}}
+{\setstretch{1.1}
+\noindent \textbf{Michael R. Kosorok} \emph{(Ph.D. Advisor)}\\
+\textit{W.\,R. Kenan, Jr. Distinguished Professor of Biostatistics}; \\
+\textit{Professor of Statistics and Operations Research}; \\
+\textit{Founding Director, Center for Artificial Intelligence and Public Health}\\
+{University of North Carolina at Chapel Hill}\\
+
+\noindent \textbf{Jeffrey Näf} \emph{(Collaborator, Nonparametric Estimation under MAR)}\\
+\textit{Assistant Professor of Statistics and Business Analytics}\\
+{Geneva School of Economics and Management, University of Geneva}\\
+
+
+\noindent \textbf{Marcos Matabuena} \emph{(Collaborator, Survey Distributional Random Forests)}\\
+\textit{Assistant Professor, Department of Epidemiology}\\
+{Mohamed bin Zayed University of Artificial Intelligence}\\
+}
+\end{comment}
+
+\end{document}

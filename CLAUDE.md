@@ -1,48 +1,162 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Guidance for Claude Code working in this repository.
 
-@AGENTS.md
+## What this is
 
-`AGENTS.md` (imported above) is the **authoritative** agent entry point: change routing, the stop sign for gem-owned paths, the three silent failure modes, and the validated command set. Keep it short and ecosystem-neutral. Cross-repo architecture — the wrapper/tag/gem delegation table, feature gating, the v1 config contract, local overrides — lives in [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md); area-to-gem ownership lives in [`docs/BOUNDARIES.md`](docs/BOUNDARIES.md).
+The personal academic website of **Yating Zou**, published at <https://yatingz205.github.io>.
 
-**Read those three before editing anything.** Everything below is Claude-specific or longer-form operational detail that does not belong in the short entry point. Do not restate facts from those files here — link to them.
+It started from the [al-folio](https://github.com/alshedivat/al-folio) v1 Jekyll starter, but it is
+**a personal site, not a contribution to the al-folio project**. The upstream starter's own rules
+(its `AGENTS.md`, its test suite, its "the starter must never contain `_layouts`/`_sass`" contract)
+do **not** apply here and have been removed. Local overrides are legal and in use.
 
-## Daily dev loop
+## Three things that will waste your time if you don't know them
+
+### 1. `baseurl` must stay empty
+
+This is a **user site** (`username.github.io`), served from the domain root. `_config.yml` keeps
+`baseurl:` present but blank, and `url: https://yatingz205.github.io`.
+
+Build and serve with no baseurl flag:
 
 ```bash
-bundle install                                # ruby gems
-bundle exec jekyll serve                      # dev server → http://localhost:4000/al-folio/  (NOTE baseurl)
-bundle exec jekyll build --baseurl /al-folio  # production-style build to _site/
-bash test/integration_distill.sh              # run ONE integration test (any of the seven in test/)
-npm run test:visual:update                    # refresh playwright snapshots after intentional UI change
-bundle exec al-folio upgrade apply --safe     # deterministic codemods (font-weight-* → font-*, remote→local URLs)
-bundle exec al-folio upgrade overrides diff <path>    # then `overrides accept <path>` to acknowledge an override
+export PATH="/opt/homebrew/opt/ruby@3.3/bin:$PATH"
+bundle exec jekyll serve --livereload      # http://localhost:4000/
 ```
 
-## Optional toolchains
+Any instruction you find (in old docs, in `docs/`, in blog posts about al-folio) to pass
+`--baseurl /al-folio` is about the upstream demo site. Using it here breaks every link and asset.
 
-- **Jupyter posts.** `bin/setup-python-deps` installs _only_ `jupyter` and `nbconvert` (via `pip --user --break-system-packages`) for `jekyll-jupyter-notebook`. It does **not** read `requirements.txt`. Missing `jupyter-nbconvert` is warn-and-continue; notebook rendering is skipped.
-- **Everything else Python.** [`requirements.txt`](requirements.txt) is the fuller list and must be installed separately (`python3 -m pip install -r requirements.txt`): `rendercv[full]` for CV rendering, `scholarly` for `bin/update_scholar_citations.py`, plus `nbconvert` and `pyyaml`.
-- **Responsive images.** `imagemagick.enabled: true` needs ImageMagick `convert` on `PATH`.
-- **Manual deploy.** `bin/deploy` is the manual `gh-pages` build + purgecss + force-push path; CI normally deploys. `purgecss` is not a devDependency — install it with `npm install -g purgecss`.
+### 2. `Gemfile` and `_config.yml` are two lists that must agree
 
-## Docker serving model (v1-specific)
+A plugin gem must appear in **both** `group :al_folio_plugins` in the `Gemfile` **and** the
+`plugins:` list in `_config.yml`. In only one, it is inert — no warning, no error, the feature just
+silently does nothing. Adding _or_ removing a plugin means editing both files.
 
-`docker compose up -d` bind-mounts the repo to `/srv/jekyll` and runs `bin/entry_point.sh`, which serves with `--force_polling --destination /tmp/_site`. The build output deliberately goes to **container-local `/tmp/_site`, not the bind-mounted `_site`** — writing `_site` back across the host bind mount caused write deadlocks. The container also `inotifywait`s `_config.yml` and restarts Jekyll on change (config edits aren't hot-reloaded by `--watch`). Verify with the `/al-folio` baseurl: `curl -fsS http://127.0.0.1:8080/al-folio/`. `docker-compose-slim.yml` pulls a prebuilt `:slim` image instead of building locally.
+Repo/gem naming differs: repos use hyphens (`al-folio-core`), gem and plugin ids use underscores
+(`al_folio_core`).
 
-## CI gates and the style contract
+Currently active al-folio plugins, deliberately pruned to what the site uses:
+`al_folio_core` (the theme), `al_folio_upgrade` (the CLI), `al_icons`, `al_search`, `al_img_tools`,
+`al_math`. Everything else — CV rendering, distill, comments, analytics, cookies, charts, RTL,
+newsletter, marimo, external posts, citations, email obfuscation, bootstrap-compat — has been
+removed from both lists.
 
-`npm run lint:style-contract` (`test/style_contract.js`) is the automated enforcement of the thin-starter boundary and will fail CI if you cross it. Beyond the forbidden paths listed in `AGENTS.md`, it also asserts that `_config.yml` keeps `theme: al_folio_core` and the required plugins, that the `third_party_libraries` SRI pins are present, and that the `al_math` Gemfile pin stays on a released version rather than a git branch.
+### 3. Features gate twice
 
-Other gates:
+A feature renders only when its gem is loaded **and** its `_config.yml` flag is on **and** the page
+opts in via front matter. Otherwise the Liquid tag emits an empty string. When something "does
+nothing", check the gem, then the flag, then the front matter, then the `third_party_libraries`
+SRI entry — in that order.
 
-- `unit-tests.yml` — style contract plus all seven `test/integration_*.sh` scripts (`comments`, `plugin_toggles`, `distill`, `bootstrap_compat`, `upgrade_cli`, `css_minify`, `new_plugins`).
-- `visual-regression.yml` — Playwright on chromium + webkit, diffing the candidate build against a `v0.16.3` baseline worktree served on `:4100` via `BASELINE_URL`.
-- `upgrade-check.yml` — `bundle exec al-folio upgrade audit`.
-- `prettier.yml` — Prettier with `@shopify/prettier-plugin-liquid` and `printWidth: 150`. Run `npm run lint:prettier` before pushing; `npx prettier . --write` fixes.
-- `update-tocs.yml` — regenerates `<!--ts-->…<!--te-->` blocks in changed root and `docs/` Markdown files. If you add or rename a heading, expect a follow-up auto-commit on `main`.
+## Local overrides
 
-## Gem version pins
+Several gem-owned files are shadowed locally. Overriding a gem file is supported: a same-path file
+in this repo wins over the gem's copy.
 
-`Gemfile` pins every `al-*` gem to an exact released version in `group :al_folio_plugins`, and `_config.yml` lists the same gems under `plugins:`. Read the current pins from the `Gemfile` rather than trusting any version quoted in prose — including here. To test a gem fix against this site, repoint the `Gemfile` at a sibling checkout (`path:`, `git:`, or `branch:`) and `bundle install`; see [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md#working-on-a-gem-alongside-the-starter). Revert the pin before committing.
+| File                           | Why                                                                                   |
+| ------------------------------ | ------------------------------------------------------------------------------------- |
+| `_layouts/bib.liquid`          | minimal publication entries: plain text, bracketed `[paper]`/`[slides]` links         |
+| `_layouts/about.liquid`        | photo + bio as a vertically centred flex row instead of a floated image               |
+| `_includes/header.liquid`      | adds `nav_href` / `nav_new_tab` front matter so the cv tab opens the PDF in a new tab |
+| `_includes/footer.liquid`      | renders nothing (the gem hardcodes a copyright line before `footer_text`)             |
+| `assets/css/main.scss`         | adds `@use "pubs"` / `@use "socials"` to the gem's Sass entry point                   |
+| `assets/_sass/_variables.scss` | accent color, magenta -> dark blue (`#00369f` light, `#7ea8e8` dark)                  |
+| `assets/_sass/_themes.scss`    | **unmodified copy** -- see below                                                      |
+
+`_themes.scss` looks pointless but is load-bearing. Sass resolves `@use` relative to the importing
+file _first_, so the gem's own `_themes.scss` always reads the gem's `_variables.scss`, and an
+accent override in a local `_variables.scss` alone does nothing. The local copy exists so its
+`@use "variables"` resolves to the sibling local file. **Do not delete it** without verifying the
+compiled accent color still changes.
+
+### Sass lives in `assets/_sass`, not `_sass`
+
+`_config.yml` sets `sass.sass_dir: assets/_sass`. This is deliberate and load-bearing:
+`jekyll-cache-bust`'s `bust_css_cache` hashes the **hardcoded** path `assets/_sass`. With partials
+in the default `_sass`, that glob matched nothing, `al_folio_core`'s fallback hashed the _gem's_
+partials instead, and `main.css` kept the same `?v=` hash no matter what changed locally -- so
+browsers served a stale stylesheet after every style edit. Check it still works:
+
+```bash
+grep -o 'main\.css?v=[0-9a-f]*' _site/publications/index.html   # must change when a partial does
+```
+
+**Consequence:** because `_variables.scss` and `_themes.scss` no longer sit at the upstream path,
+`upgrade overrides audit` does not track them. After bumping `al_folio_core`, diff them by hand:
+
+```bash
+GEM=$(bundle show al_folio_core)
+diff "$GEM/_sass/_themes.scss"    assets/_sass/_themes.scss
+diff "$GEM/_sass/_variables.scss" assets/_sass/_variables.scss
+```
+
+`assets/_sass/_pubs.scss` and `assets/_sass/_socials.scss` are original files, not gem copies.
+
+### Tracked overrides
+
+The remaining overrides are registered in `.al-folio-overrides.yml`. After a gem upgrade:
+
+```bash
+bundle exec al-folio upgrade overrides audit
+bundle exec al-folio upgrade overrides diff <path>
+bundle exec al-folio upgrade overrides accept <path>
+```
+
+## Routing changes
+
+| Change                                | Goes in                                                         |
+| ------------------------------------- | --------------------------------------------------------------- |
+| Bio, landing page                     | `_pages/about.md`                                               |
+| A publication                         | `_bibliography/papers.bib`                                      |
+| How publication entries look          | `_layouts/bib.liquid`; styles in `_pages/publications.md`       |
+| A project                             | `_projects/*.md`                                                |
+| The CV                                | replace `assets/pdf/CV_YatingZou.pdf` (the page just embeds it) |
+| Colors                                | `assets/_sass/_variables.scss`                                  |
+| Email / GitHub / Scholar links        | `_data/socials.yml`                                             |
+| Site metadata, feature flags, plugins | `_config.yml` (plus `Gemfile` for plugins)                      |
+
+Shared runtime behavior that would benefit every al-folio user belongs upstream in the owning gem
+(see [BOUNDARIES.md](https://github.com/alshedivat/al-folio/blob/main/docs/BOUNDARIES.md)), not as another local override here.
+
+## Adding links to a publication
+
+Fields in `_bibliography/papers.bib` map to the bracketed tokens rendered by `_layouts/bib.liquid`:
+
+| Field                     | Token                  | Note                                               |
+| ------------------------- | ---------------------- | -------------------------------------------------- |
+| `html` / `pdf` / `doi`    | `[paper]`              | first present wins; bare filename → `/assets/pdf/` |
+| `arxiv`                   | `[arxiv]`              |                                                    |
+| `slides`, `poster`        | `[slides]`, `[poster]` | bare filename → `/assets/pdf/`                     |
+| `code`, `website`         | `[code]`, `[site]`     |                                                    |
+| `abstract`, `bibtex_show` | `[abs]`, `[bib]`       | expand inline                                      |
+
+Mark an entry `selected = {true}` to surface it on the landing page.
+
+## Validation
+
+```bash
+export PATH="/opt/homebrew/opt/ruby@3.3/bin:$PATH"
+bundle exec jekyll build           # must be clean; ~1.5s
+npm run lint:prettier              # npm run format to fix
+bundle exec al-folio upgrade audit
+bundle exec al-folio upgrade overrides audit
+```
+
+Local Ruby is Homebrew `ruby@3.3` (matches CI). Ruby 4.x fails to build native extensions against
+the installed Xcode Command Line Tools. ImageMagick must be on `PATH` for responsive images.
+
+## Deployment
+
+Pushing to `main` runs `.github/workflows/deploy.yml` — the only workflow kept — which builds with
+`JEKYLL_ENV=production`, purges unused CSS, and force-pushes `_site/` to `gh-pages`. Pages serves
+from that branch.
+
+## Reference
+
+The upstream al-folio manual lives at
+<https://github.com/alshedivat/al-folio/tree/main/docs>. A copy may be present in
+`docs/` on a local checkout, but it is **git-ignored and not part of this repo**, so do not
+assume it exists. It describes the full starter, including features this site has removed, and
+it assumes the `/al-folio` baseurl. Treat it as background, not as instructions for this repo.

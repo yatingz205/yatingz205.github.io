@@ -6,16 +6,27 @@ _site
 .jekyll-metadata
 .ruby-version
 .sass-cache
-.tweet-cache
 .venv
-assets/libs/
-assets/rendercv/rendercv_output/*.typ
 al-folio-upgrade-report.md
 node_modules/
-output/playwright/
-test-results/
 vendor
 
-# Python bytecode from bin/ helper scripts
-__pycache__/
-*.pyc
+# LaTeX build artefacts from cv-source/
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.xdv
+cv-source/build.log
+# compiled CV: rebuilt by latexmk; the published copy is assets/pdf/CV_YatingZou.pdf
+cv-source/cv_postdoc.pdf
+
+# Upstream al-folio manual: kept on disk as local reference, not part of this repo.
+# It documents the starter, much of which this site has diverged from. Current copy:
+# https://github.com/alshedivat/al-folio/tree/main/docs
+docs/

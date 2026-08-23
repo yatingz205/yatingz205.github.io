@@ -2,10 +2,9 @@
 layout: page
 title: projects
 permalink: /projects/
-description: A growing collection of your cool projects.
-nav: true
+description: Research software and applied tooling.
+nav: false # hidden from the navbar for now; the page still builds at /projects/
 nav_order: 3
-display_categories: [work, fun]
 horizontal: false
 ---
 

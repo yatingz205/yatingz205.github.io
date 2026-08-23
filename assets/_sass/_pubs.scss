@@ -1,0 +1,165 @@
+/*******************************************************************************
+ * Minimal publication list (LOCAL, not from any gem).
+ *
+ * Entry markup comes from the local _layouts/bib.liquid override. Text is plain
+ * black; the bracketed [paper] / [slides] tokens are the only colored elements.
+ *
+ * Applies anywhere jekyll-scholar output is wrapped in `.publications` -- both
+ * /publications/ and the "selected publications" block on the about page.
+ ******************************************************************************/
+
+.publications {
+  h2.bibliography {
+    color: var(--global-text-color);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    margin: 2.25rem 0 0.75rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid var(--global-divider-color);
+
+    &:first-of-type {
+      margin-top: 1rem;
+    }
+  }
+
+  ol.bibliography {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    > li {
+      margin: 0 0 1.15rem;
+      padding: 0;
+    }
+  }
+
+  .pub-title {
+    color: var(--global-text-color);
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  // authors and venue/year share one line (spans inside .pub-meta)
+  .pub-meta,
+  .pub-note {
+    color: var(--global-text-color);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .pub-note {
+    font-style: italic;
+    opacity: 0.75;
+  }
+
+  // the author's own name is not emphasised
+  .pub-self {
+    font-weight: inherit;
+  }
+
+  // coauthor links stay black so the entry reads as one block of text
+  .pub-coauthor {
+    color: var(--global-text-color);
+    text-decoration: underline;
+    text-decoration-color: var(--global-divider-color);
+  }
+
+  // the only color in the list
+  .links {
+    margin-top: 0.2rem;
+
+    a {
+      color: var(--global-theme-color);
+      font-size: 0.85rem;
+      margin-right: 0.5rem;
+      text-decoration: none;
+      white-space: nowrap;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  // inline [abs] / [bib] panels
+  .hidden {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.15s ease;
+
+    &.open {
+      max-height: 100em;
+      margin-top: 0.4rem;
+    }
+  }
+
+  .abstract.hidden p {
+    font-size: 0.85rem;
+    margin: 0;
+    text-align: justify;
+  }
+
+  .bibtex.hidden figure,
+  .bibtex.hidden pre {
+    font-size: 0.78rem;
+    margin: 0;
+  }
+}
+
+/* Section headings on the publications page.
+   Same typography as the page title (h1 .post-title: font-weight 300, line-height
+   1.2, inherited family), just smaller -- 1.75rem against the title's 2.5rem.
+   The rule sits ABOVE the heading so it separates sections;
+   --global-text-color-light is #828282 in both themes. */
+.pub-section {
+  color: var(--global-text-color);
+  font-family: inherit;
+  font-size: 1.75rem;
+  font-weight: 300;
+  letter-spacing: normal;
+  line-height: 1.2;
+  margin: 2.75rem 0 1rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--global-text-color-light);
+  scroll-margin-top: 5rem; /* clears the fixed navbar when jumped to */
+}
+
+/* Jump buttons under the page title */
+$pub-jump-bg: #223a6e;
+
+.pub-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; // spacing between the buttons
+  margin-bottom: 0.75rem;
+
+  // `display` and `background-color` are set explicitly: Tailwind's base layer
+  // resets `a { background-color: #0000 }`, and an inline <a> would ignore padding.
+  a,
+  a:link,
+  a:visited {
+    display: inline-block;
+    background-color: $pub-jump-bg;
+    border: 1px solid $pub-jump-bg;
+    border-radius: 0.3rem;
+    color: var(--global-hover-text-color);
+    font-size: 0.85rem;
+    font-weight: 500;
+    line-height: 1.1;
+    padding: 0.5rem 0.95rem;
+    text-decoration: none;
+    transition: opacity 0.15s ease-in-out;
+  }
+
+  a:hover {
+    background-color: $pub-jump-bg;
+    color: var(--global-hover-text-color);
+    opacity: 0.82;
+    text-decoration: none;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}

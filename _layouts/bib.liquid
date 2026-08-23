@@ -1,0 +1,172 @@
+---
+---
+{%- comment -%}
+  Local override of al_folio_core's _layouts/bib.liquid.
+  A deliberately minimal publication entry: plain black text, with bracketed
+  link tokens ([paper], [slides], ...) as the only colored elements.
+
+  To add a link to an entry, add the matching field in _bibliography/papers.bib:
+
+    pdf    = {my-paper.pdf}          -> [paper]   (a bare filename resolves to /assets/pdf/)
+    html   = {https://...}           -> [paper]   (takes priority over pdf/doi)
+    doi    = {10.xxxx/yyyy}          -> [paper]   (fallback if no html/pdf)
+    arxiv  = {2512.08179}            -> [arxiv]
+    slides = {my-slides.pdf}         -> [slides]  (bare filename -> /assets/pdf/)
+    poster = {my-poster.pdf}         -> [poster]  (bare filename -> /assets/pdf/)
+    code   = {https://github.com/...}-> [code]
+    website= {https://...}           -> [site]
+    abstract = {...}                 -> [abs]     (expands inline)
+    bibtex_show = {true}             -> [bib]     (expands inline)
+
+  Styling lives in _sass/_pubs.scss (shared with the about page).
+{%- endcomment -%}
+
+{%- comment -%}
+  Field normalisation: this bibliography is maintained in biblatex form (the same
+  file used for the CV), so accept `date` as well as `year`, and `eprint` as well
+  as `arxiv`.
+{%- endcomment -%}
+{%- assign pub_year = entry.year | default: entry.date -%}
+{%- assign pub_arxiv = entry.arxiv | default: entry.eprint -%}
+{%- comment -%}
+  `equalcontrib = {N}` in the .bib marks the first N authors as joint first authors;
+  they get a superscript dagger. Deliberately a separate field rather than a literal
+  dagger in the author name: the LaTeX CV derives its own daggers from `keywords`, so a
+  literal one would double up there and break its exact-name test for bolding "Zou".
+{%- endcomment -%}
+{%- assign equal_n = entry.equalcontrib | plus: 0 -%}
+
+<div class="pub" id="{{ entry.key }}">
+  <div class="pub-title">{{ entry.title }}</div>
+
+  <div class="pub-meta">
+    <span class="pub-authors">
+      {%- for author in entry.author_array -%}
+        {%- assign author_last_name = author.last | regex_replace: '[*∗†‡§¶‖&^]', '' -%}
+        {%- assign author_last_html = author.last | regex_replace: '([*∗†‡§¶‖&^]+)', '<sup>\1</sup>' -%}
+        {%- assign author_is_self = false -%}
+        {%- if site.scholar.last_name contains author_last_name -%}
+          {%- if site.scholar.first_name contains author.first -%}
+            {%- assign author_is_self = true -%}
+          {%- endif -%}
+        {%- endif -%}
+        {%- assign coauthor_url = null -%}
+        {%- assign clean_last_name = author_last_name | downcase | remove_accents -%}
+        {%- if site.data.coauthors[clean_last_name] -%}
+          {%- for coauthor in site.data.coauthors[clean_last_name] -%}
+            {%- if coauthor.firstname contains author.first -%}
+              {%- assign coauthor_url = coauthor.url -%}
+              {%- break -%}
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endif -%}
+        {%- unless forloop.first %}, {% endunless -%}
+        {%- if author_is_self -%}
+          <span class="pub-self">
+            {{- author.first }}
+            {{ author_last_html -}}
+          </span>
+        {%- elsif coauthor_url -%}
+          <a class="pub-coauthor" href="{{ coauthor_url }}">
+            {{- author.first }}
+            {{ author_last_html -}}
+          </a>
+        {%- else -%}
+          {{ author.first }}
+          {{ author_last_html }}
+        {%- endif -%}
+        {%- if forloop.index <= equal_n -%}
+          <sup>&dagger;</sup>
+        {%- endif -%}
+      {%- endfor -%}
+    </span>
+
+    {%- assign proceedings = 'inproceedings,incollection' | split: ',' -%}
+    {%- assign thesis = 'thesis,mastersthesis,phdthesis' | split: ',' -%}
+    {%- if entry.type == 'article' -%}
+      {%- capture entrytype -%}<em>{{ entry.journal }}</em>{%- endcapture -%}
+    {%- elsif proceedings contains entry.type -%}
+      {%- capture entrytype -%}<em>{{ entry.booktitle }}</em>{%- endcapture -%}
+    {%- elsif thesis contains entry.type -%}
+      {%- capture entrytype -%}<em>{{ entry.school }}</em>{%- endcapture -%}
+    {%- else -%}
+      {%- capture entrytype -%}{%- endcapture -%}
+    {%- endif -%}
+    {%- assign entrytype_text = entrytype | strip_html | strip -%}
+    <span class="pub-venue">
+      {%- if entrytype_text != '' -%}
+        . {{ entrytype }}
+        {%- if entry.volume -%}
+          {{ ' ' -}}
+          {{- entry.volume }}
+          {%- if entry.number -%}({{ entry.number }}){%- endif -%}
+        {%- endif -%}
+        {%- if entry.pages -%}, {{ entry.pages }}{%- endif -%}
+        {%- if pub_year -%}, {{ pub_year }}{%- endif -%}
+      {%- elsif pub_year -%}
+        , {{ pub_year }}
+      {%- endif -%}
+    </span>
+  </div>
+
+  {%- if entry.note -%}
+    <div class="pub-note">{{ entry.note | strip }}</div>
+  {%- endif -%}
+
+  <div class="links">
+    {%- if entry.html -%}
+      <a href="{{ entry.html }}">[paper]</a>
+    {%- elsif entry.pdf -%}
+      {%- if entry.pdf contains '://' -%}
+        <a href="{{ entry.pdf }}">[paper]</a>
+      {%- else -%}
+        <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}">[paper]</a>
+      {%- endif -%}
+    {%- elsif entry.doi -%}
+      <a href="https://doi.org/{{ entry.doi }}">[paper]</a>
+    {%- endif -%}
+    {%- if pub_arxiv -%}
+      <a href="https://arxiv.org/abs/{{ pub_arxiv }}">[arxiv]</a>
+    {%- endif -%}
+    {%- if entry.slides -%}
+      {%- if entry.slides contains '://' -%}
+        <a href="{{ entry.slides }}">[slides]</a>
+      {%- else -%}
+        <a href="{{ entry.slides | prepend: '/assets/pdf/' | relative_url }}">[slides]</a>
+      {%- endif -%}
+    {%- endif -%}
+    {%- if entry.poster -%}
+      {%- if entry.poster contains '://' -%}
+        <a href="{{ entry.poster }}">[poster]</a>
+      {%- else -%}
+        <a href="{{ entry.poster | prepend: '/assets/pdf/' | relative_url }}">[poster]</a>
+      {%- endif -%}
+    {%- endif -%}
+    {%- if entry.code -%}
+      <a href="{{ entry.code }}">[code]</a>
+    {%- endif -%}
+    {%- if entry.website -%}
+      <a href="{{ entry.website }}">[site]</a>
+    {%- endif -%}
+    {%- if entry.abstract -%}
+      <a class="abstract" href="#">[abs]</a>
+    {%- endif -%}
+    {%- if entry.bibtex_show -%}
+      <a class="bibtex" href="#">[bib]</a>
+    {%- endif -%}
+  </div>
+
+  {%- if entry.abstract -%}
+    <div class="abstract hidden">
+      <p>{{ entry.abstract }}</p>
+    </div>
+  {%- endif -%}
+
+  {%- if entry.bibtex_show -%}
+    <div class="bibtex hidden">
+      {% highlight bibtex %}
+      {{- entry.bibtex | hideCustomBibtex -}}
+      {% endhighlight %}
+    </div>
+  {%- endif -%}
+</div>

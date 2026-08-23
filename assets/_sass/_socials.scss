@@ -1,0 +1,44 @@
+/*******************************************************************************
+ * Social icon row (LOCAL, not from any gem).
+ *
+ * Shrinks the bottom-of-page contact icons. al_folio_core's _components.scss
+ * sizes them at 4rem, which is oversized for a short row; these rules scale the
+ * whole group down proportionally. Sizes here mirror the gem's structure
+ * (font-size for icon fonts, explicit width/height for <img> and <svg> logos).
+ ******************************************************************************/
+
+.social .contact-icons {
+  font-size: 2.5rem;
+
+  a {
+    img {
+      width: 2rem;
+      height: 2rem;
+      margin-bottom: 0.6rem;
+    }
+
+    svg {
+      width: 2.2rem;
+      height: 2.5rem;
+      margin-bottom: 0.3rem;
+
+      image {
+        width: 2.2rem;
+        height: 2.2rem;
+      }
+    }
+  }
+}
+
+/*******************************************************************************
+ * Navbar theme-toggle sun icon (LOCAL).
+ *
+ * #light-toggle-light is an inline <svg> rather than an <i>, so it needs the
+ * 1em box the Font Awesome glyphs get for free. Colour comes from `currentColor`
+ * on the SVG, which inherits #light-toggle's colour and :hover state.
+ ******************************************************************************/
+
+svg.af-sun-bright {
+  width: 1em;
+  height: 1em;
+}
