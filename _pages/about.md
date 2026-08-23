@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href="https://sph.unc.edu/bios/biostatistics-landing/">Department of Biostatistics</a>, <a href="https://sph.unc.edu/">UNC Gillings School of Global Public Health</a>.
+subtitle: <a href="https://sph.unc.edu/bios/biostatistics/">Department of Biostatistics</a>, <a href="https://sph.unc.edu/">UNC Gillings School of Global Public Health</a>.
 
 profile:
   align: right

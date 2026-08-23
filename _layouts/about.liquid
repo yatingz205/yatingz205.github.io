@@ -117,15 +117,21 @@ layout: default
     margin: 0;
   }
 
-  /* Stack on narrow screens, photo first. */
+  /* Stack on narrow screens. The body comes first in the DOM, so the photo lands
+     BELOW the text. Desktop zeroes the last paragraph's bottom margin for flex
+     centering, which left the contact line butting straight against the figure --
+     hence the explicit top margin here. Desktop layout is untouched. */
   @media (max-width: 700px) {
     .about-intro {
       display: block;
     }
+    .about-intro .about-body > p:last-child {
+      margin-bottom: 0.5rem;
+    }
     .about-intro .profile {
       float: none;
       max-width: 60%;
-      margin: 0 auto 1.5rem;
+      margin: 2rem auto 1.5rem;
     }
   }
 </style>
