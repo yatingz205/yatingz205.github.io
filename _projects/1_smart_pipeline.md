@@ -22,4 +22,4 @@ trial data to an interpretable report.
 **Stack** — R, `targets`, Quarto, `tidymodels`.
 
 Developed with the [UNC Gillings Center for Artificial Intelligence and Public Health (CAIPH)](https://sph.unc.edu/caiph/)
-and the [UNC Collaborative Studies Coordinating Center (CSCC)](https://www.cscc.unc.edu/).
+and the UNC Collaborative Studies Coordinating Center (CSCC).

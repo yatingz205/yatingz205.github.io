@@ -9,7 +9,7 @@ related_publications: false
 ---
 
 A provider-agnostic, tool-using LLM agent that validates healthcare-location records for MAHEC's
-[FindMyCareWNC](https://findmycarewnc.org/) platform, which helps people in western North Carolina locate care.
+[FindMyCareWNC](https://mahec.net/regional-initiatives/itacc-resource-map) platform, which helps people in western North Carolina locate care.
 
 **What it does**
 
