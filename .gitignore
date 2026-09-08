@@ -22,6 +22,7 @@ vendor
 *.out
 *.run.xml
 *.xdv
+*.synctex.gz
 cv-source/build.log
 # compiled CV: rebuilt by latexmk; the published copy is assets/pdf/CV_YatingZou.pdf
 cv-source/cv_postdoc.pdf
