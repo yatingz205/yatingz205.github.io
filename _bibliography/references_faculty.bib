@@ -1,11 +1,13 @@
-% Bibliography for the publications page.
+% Bibliography for the publications page AND the CV (cv-source/cv_faculty.tex).
 %
 % Section split is driven by `keywords`:
 %   methods / inprep          -> "methods" section
 %   appPub / appSub / appPre  -> "applied & collaboration" section
 % Sorting is by `year`, descending. Use `year`, not biblatex's `date` -- jekyll-scholar
 % sorts on `year` only, and entries lacking it fall to the bottom of their section.
-% `sortyear` is NOT used by this site (see _pages/publications.md).
+% `sortyear` orders the CV only; the website ignores it.
+%
+% `selected = {true}` surfaces an entry on the landing page; the CV ignores it.
 %
 % `equalcontrib = {N}` marks the first N authors as joint first authors: the website
 % superscripts a dagger on them. The LaTeX CV ignores it and derives its own daggers
@@ -13,7 +15,8 @@
 % double it in the CV and break its \ifdefstring{\namepartfamily}{Zou} name bolding.
 %
 % NOTE: `%` is NOT a comment character inside an entry. A `%` between braces makes
-% biber drop the whole entry silently, with no build error.
+% biber drop the whole entry silently, with no build error. To hide entries, wrap
+% them in @comment{...}, as below.
 
 %  ======== applications ===========
 
@@ -107,11 +110,12 @@
   year     = {2026},
   sortyear = {2027},
   month    = {6},
-  note     = {Submitted, selected as oral in CROI},
-  keywords = {appSub, firstauthor, senior}
+  note     = {Selected as oral in CROI 2026},
+  keywords = {appPre, firstauthor, senior}
 }
 
-%   author       = {Zhao, Beibo and
+@comment{   
+author       = {Zhao, Beibo and
                   Sowa, Gwendolyn A. and
                   Ivanova, Anastasia and
                   Kidwell, Kelley M. and
@@ -131,6 +135,7 @@
                   Anstrom, Kevin J. and
                   Clauw, Daniel J. and
                   Mauck, Matthew C.},
+}
 @misc{zhao_best_heterogeneity,
   author       = {Zhao, Beibo and
                   Sowa, Gwendolyn A. and
@@ -150,8 +155,8 @@
 %  ======== methods ===========
 
 @misc{zou2026mar,
-    title         = {Asymptotics of Nonparametric Estimation under General Non-monotone MAR Missingness: A Nonparametric Maximum Likelihood Approach}, 
-    author        = {Yating Zou and Huimin Hu and Jeffrey N\"af},
+    title         = {Asymptotics of Nonparametric Estimation under General Non-monotone M(N)AR Missingness: A Nonparametric Maximum Likelihood Approach}, 
+    author        = {Yating Zou and Huimin Hu and Gitte Kremling and Jeffrey N\"af},
     year          = {2026},
     sortyear      = {2027},
     eprint        = {2608.10113},
@@ -173,22 +178,23 @@
   doi          = {10.48550/arXiv.2512.08179},
   note         = {Under review},
   keywords     = {methods, firstauthor},
-  selected      = {true}
+  selected     = {true}
 }
 
 @misc{zitovsky2023luq,
   author       = {Zitovsky, Joshua P. and Zou, Yating and Wilson, Leslie and Kosorok, Michael R.},
   title        = {Latent Utility Q-Learning for Preference-Adaptive Dynamic Treatment Regimes},
   year         = {2023},
+  sortyear     = {2024},
   month        = {7},
   eprinttype   = {arXiv},
   eprint       = {2307.12022},
   primaryClass = {stat.ME},
   doi          = {10.48550/arXiv.2307.12022},
-  note         = {In revision with JASA. † Joint first authors},
+  note         = {In invited revision with JASA},
   equalcontrib = {2},
   keywords     = {methods, firstauthor},
-  selected      = {true}
+  selected     = {true}
 }
 
 @misc{hammouri2025roc,
@@ -213,11 +219,26 @@
   keywords = {inprep}
 }
 
+@misc{kyungbok2026,
+  title         = {What a Data Release Must Preserve for Off-Policy Evaluation},
+  author        = {Lee, Kyungbok and Zou, Yating and Kosorok, Michael R.},
+  year          = {2026},
+  sortyear      = {2023},
+  month         = {10},
+  eprint        = {2610.15283},
+  archivePrefix = {arXiv},
+  primaryClass  = {stat.ML},
+  doi           = {10.48550/arXiv.2610.15283},
+  note          = {Submitted to AISTATS 2027},
+  keywords      = {methods}
+}
+
+
 @misc{freeman2026digitaltwin,
     title={The Fidelity and Feedback Traps: The Case for Health Digital Twins as Modular Evolving Causal Systems}, 
     author={Nikki L. B. Freeman and Yating Zou and Kyungbok Lee and Chenyao Yu and Didong Li and Michael R. Kosorok},
     year={2026},
-    sortyear={2024},
+    sortyear={2019},
     eprint={2607.27192},
     archivePrefix={arXiv},
     primaryClass={stat.OT},
@@ -233,5 +254,48 @@
   keywords = {inprep}
 }
 
+@comment{
+%@misc{zou2026mrl,
+  author   = {Zou, Yating and Kosorok, Michael R.},
+  title    = {Coordinating Heterogeneous Agents for Hierarchical Resource Allocation under Latent Shared Dynamics},
+  sortyear = {2027},
+  year     = {2026},
+  note     = {In preparation},
+  keywords = {inprep, firstauthor}
+}
 
+%@misc{liu2026,
+  author   = {Liu, Hongqian and Zou, Yating and Kosorok, Michael R.},
+  title    = {A Benchmarking Platform for Offline Reinforcement Learning with Pokemon},
+  year     = {2026},
+  note     = {In preparation},
+  keywords = {inprep}
+}
+}
 
+@misc{Rowland2026BEST24wk,
+  author = {Rowland, Bryce and Sowa, Gwendolyn and Zhao, Beibo and Ivanova, Anastasia and Mackey, Sean and Marras, William and Rundell, Sean and Shao, Yu
+            and Wasan, Ajay and Zou, Yating and Bagaason, Sarah and Bailey, Jeannie
+            and Barth, Kelly and Bell, Kevin and Black, Dennis and Borckardt, Jeff
+            and Bowden, Anton and Brooks, Amber and Carey, Timothy and Chadwick, Andrea
+            and Chen, Lucy and Chidgey, Brooke and Cleven, Annika and Dalton, Diane
+            and Delitto, Anthony and Derr, Leslie and Dufour, Jonathan and Eberlein, Samuel
+            and Edupuganti, Karthik and Fenu, Christy and Fields, Aaron J. and Fritz, Julie
+            and Greco, Carol and Gunn, Cameron and Harris, Richard E. and Harte, Steve
+            and Hassett, Afton L. and Helton, Kinsey and Hurley, Robert W.
+            and Jones-Berkeley, Sara and Kaplan, Chelsea and Kidwell, Kelley
+            and Knapik, Gregory and Kosorok, Michael and Kurillo, Gregorij and Li, David
+            and Lobo, Remy and Lotz, Jeffrey and Mageswaran, Prasath and Majumdar, Sharmila
+            and Mao, Jianren and McCracken, Lance and McCumber, Micah and McLean, Samuel
+            and Mehling, Wolf and Mitchell, Ulrike and Napadow, Vitaly and O'Neill, Conor
+            and Patel, Kushang and Peltier, Scott and Piston, Daniel and Piva, Sara
+            and Schneider, Michael and Schrepf, Andrew and Slater, Kristen
+            and Sperger, John and Toups, Vincent and Vo, Nam and Wallace, Mark
+            and Weaver, Tristan and Weber, Kenneth and Williams, David and Wilson, Leslie
+            and Zhang, Xinyu and Anstrom, Kevin and Clauw, Daniel and Mauck, Matt},
+  title  = {Results from the {Biomarkers for Evaluating Spine Treatments (BEST)} Trial:
+            24-Week Outcomes},
+  year   = {2026},
+  keywords = {appPre},
+  note   = {In preparation},
+}

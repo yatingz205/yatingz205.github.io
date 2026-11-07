@@ -8,10 +8,10 @@ nav_order: 2
 ---
 
 <!--
-  Two sections, split by the `keywords` field in _bibliography/references_postdoc.bib:
+  Two sections, split by the `keywords` field in _bibliography/references_faculty.bib:
     methods section  -> keywords containing `methods` or `inprep`
     applied section  -> keywords containing `appPub`, `appSub` or `appPre` (matched on `app`)
-  Entry markup: _layouts/bib.liquid. Styling: _sass/_pubs.scss.
+  Entry markup: _layouts/bib.liquid. Styling: assets/_sass/_pubs.scss.
 -->
 
 <nav class="pub-jump">

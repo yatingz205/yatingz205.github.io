@@ -106,23 +106,59 @@ bundle exec al-folio upgrade overrides accept <path>
 
 ## Routing changes
 
-| Change                                | Goes in                                                         |
-| ------------------------------------- | --------------------------------------------------------------- |
-| Bio, landing page                     | `_pages/about.md`                                               |
-| A publication                         | `_bibliography/papers.bib`                                      |
-| How publication entries look          | `_layouts/bib.liquid`; styles in `_pages/publications.md`       |
-| A project                             | `_projects/*.md`                                                |
-| The CV                                | replace `assets/pdf/CV_YatingZou.pdf` (the page just embeds it) |
-| Colors                                | `assets/_sass/_variables.scss`                                  |
-| Email / GitHub / Scholar links        | `_data/socials.yml`                                             |
-| Site metadata, feature flags, plugins | `_config.yml` (plus `Gemfile` for plugins)                      |
+| Change                                | Goes in                                                      |
+| ------------------------------------- | ------------------------------------------------------------ |
+| Bio, landing page                     | `_pages/about.md`                                            |
+| A publication                         | `_bibliography/references_faculty.bib` (also feeds the CV)   |
+| How publication entries look          | `_layouts/bib.liquid`; styles in `assets/_sass/_pubs.scss`   |
+| A project                             | `_projects/*.md`                                             |
+| The CV                                | `cv-source/cv_faculty.tex`, then rebuild the PDF (see below) |
+| Colors                                | `assets/_sass/_variables.scss`                               |
+| Email / GitHub / Scholar links        | `_data/socials.yml`                                          |
+| Site metadata, feature flags, plugins | `_config.yml` (plus `Gemfile` for plugins)                   |
 
 Shared runtime behavior that would benefit every al-folio user belongs upstream in the owning gem
 (see [BOUNDARIES.md](https://github.com/alshedivat/al-folio/blob/main/docs/BOUNDARIES.md)), not as another local override here.
 
+## The CV and the bibliography share one source
+
+`_bibliography/references_faculty.bib` is read by **both** jekyll-scholar (the publications page,
+`scholar.bibliography` in `_config.yml`) **and** biblatex in `cv-source/cv_faculty.tex`
+(`\addbibresource{../_bibliography/references_faculty.bib}`). Edit it once; never keep a second
+copy next to the `.tex`. If the user hands over a new `.tex`/`.bib` pair, merge it into these
+files rather than adding parallel ones, and carry over:
+
+- **Website-only bib fields** that a CV-oriented `.bib` tends to lack: `selected = {true}`
+  (landing page) and `equalcontrib = {N}` (joint-first daggers). biblatex ignores both.
+- **`year`, not `date`.** jekyll-scholar sorts on `year` only. `sortyear` orders the CV only.
+- **Hidden entries go in `@comment{...}`**, never `%` inside an entry (biber silently drops the
+  entry). The `@comment` blocks cause two harmless "possible runaway string" biber warnings.
+- **Three `.tex` fixes**, marked with comments: `academicons`/`fontawesome` load _after_ the
+  fontspec/mathspec block; `\pdfstringdefDisableCommands{\let\MakeUppercase\relax}`; and the
+  `\addbibresource` path above.
+- **Section split by `keywords`**: `methods`/`inprep` → methods, `appPub`/`appSub`/`appPre` →
+  applied (on both the CV and the site). `firstauthor`/`senior` drive the CV's †/‡ only.
+
+The web author list stops after 10 names with "et al." (in `_layouts/bib.liquid`) to match
+`maxbibnames=10` in the CV. Keep the two in step.
+
+To rebuild and publish the CV (XeLaTeX + biber; setup in `cv-source/README.md`):
+
+```bash
+export PATH="/Library/TeX/texbin:$PATH"
+cd cv-source && latexmk -xelatex cv_faculty.tex && cp cv_faculty.pdf ../assets/pdf/CV_YatingZou.pdf
+```
+
+The PDF is **public and blinded**. It must not contain a phone number, **any** email address (the
+UNC one included, even if a new `.tex` from the user puts it back in the header), or referee contact
+details (the References section stays inside `\begin{comment}`).
+The spelled-out "yating at live dot unc dot edu" on the About page is intended; leave it.
+Run the check in `cv-source/README.md` after every rebuild. `strings` on the PDF is useless because the
+streams are compressed.
+
 ## Adding links to a publication
 
-Fields in `_bibliography/papers.bib` map to the bracketed tokens rendered by `_layouts/bib.liquid`:
+Fields in `_bibliography/references_faculty.bib` map to the bracketed tokens rendered by `_layouts/bib.liquid`:
 
 | Field                     | Token                  | Note                                               |
 | ------------------------- | ---------------------- | -------------------------------------------------- |

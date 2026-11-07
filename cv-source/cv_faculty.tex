@@ -1,6 +1,7 @@
-% PUBLIC / BLINDED CV -- phone number and personal email removed; the header
-% links to the website, Google Scholar and GitHub instead. Keep this variant in
-% sync with your private CV. Build: see cv-source/README.md
+% PUBLIC / BLINDED CV -- served from the website. No phone number, no email address
+% (not even the UNC one) and no referee contact details; the header links to the
+% website, Google Scholar and GitHub instead.
+% Build: see cv-source/README.md
 \documentclass[11pt]{scrartcl}
 \usepackage{lmodern}
 \usepackage{comment}
@@ -8,7 +9,7 @@
 \usepackage{longtable}
 \usepackage{setspace}
 \usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
+
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
@@ -33,17 +34,9 @@
 }{}
 \PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
 \usepackage[unicode=true]{hyperref}
-\hypersetup{
-            pdfborder={0 0 0},
-            breaklinks=true}
+\hypersetup{pdfborder={0 0 0}, breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
 \usepackage[margin=1in]{geometry}
-\IfFileExists{parskip.sty}{%
-\usepackage{parskip}
-}{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-}
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -58,6 +51,7 @@
 \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
 
+
 \usepackage[normalem]{ulem}
 
 \usepackage[
@@ -68,15 +62,18 @@
     maxcitenames=2, 
     uniquelist=false,
     giveninits=true,
-    maxbibnames=8,
-    minbibnames=8,
+    maxbibnames=10,
+    minbibnames=10,
     url=true,
     doi=true,
     sortcites=false, 
     uniquename=false 
 ]{biblatex}
+\appto\biburlsetup{\Urlmuskip=0mu\relax}
 % Shared with the website's publications page -- single source of truth.
-\addbibresource{../_bibliography/references_postdoc.bib}
+\addbibresource{../_bibliography/references_faculty.bib}
+\usepackage{ragged2e}
+\appto\bibsetup{\RaggedRight}
 \usepackage{xurl}
 \usepackage{xpatch}
 
@@ -114,7 +111,7 @@
 \makeatletter
 \def\fps@figure{htbp}
 \makeatother
-
+\setparsizes{0pt}{3pt plus 1pt}{0pt plus 1fil}
 \defaultfontfeatures{Scale=MatchLowercase,Ligatures={TeX}}
 \setmainfont{Liberation Serif}
 \setsansfont{Liberation Serif}
@@ -123,7 +120,8 @@
 \usepackage{multirow}
 \usepackage{xcolor}
 \definecolor{cvlinkcolor}{RGB}{6,125,233}
-\hypersetup{colorlinks,linkcolor=cvlinkcolor,citecolor=cvlinkcolor,urlcolor=cvlinkcolor,bookmarksnumbered,bookmarks=false}
+\hypersetup{colorlinks,
+linkcolor=cvlinkcolor,citecolor=cvlinkcolor,urlcolor=cvlinkcolor, bookmarksnumbered}
 % \subsection titles use \MakeUppercase, which hyperref cannot expand when it builds
 % PDF bookmark strings ("Undefined control sequence ... UppercaseUnsupportedInPdfStrings").
 % Neutralise it for pdfstring expansion only; printed headings are unaffected.
@@ -141,24 +139,25 @@
 %%%\centering
 {\def\arraystretch{1.1}\tabcolsep=0pt
 \begin{longtable}{p{0.70\linewidth}p{0.1\linewidth}p{0.2\linewidth}}
-
   \multirow{1}{*}{\LARGE \textbf{Yating Zou}} &  &  \\
   
   & & \\
   
-  Department of Biostatistics & \multicolumn{1}{r}{\faGlobe\;\;} & \multicolumn{1}{l}{\href{https://yatingz205.github.io}{yatingz205.github.io}} \\
+  Department of Biostatistics & \multicolumn{1}{r}{\faGlobe{}\;\;} & \multicolumn{1}{l}{\href{https://yatingz205.github.io/}{Personal Website}} \\
   
-  Gillings School of Public Health & \multicolumn{1}{r}{\aiGoogleScholar\;\;} & \multicolumn{1}{l}{\href{https://scholar.google.com/citations?user=pDc_ztMAAAAJ&hl=en}{Google Scholar}} \\
-  
-  University of North Carolina at Chapel Hill & \multicolumn{1}{r}{\faGithub\;\;} & \multicolumn{1}{l}{\href{https://github.com/yatingz205}{github.com/yatingz205}} \\
-  
+  Gillings School of Public Health & \multicolumn{1}{r}{\aiGoogleScholar\;\;} & \multicolumn{1}{l}{\href{https://scholar.google.com/citations?hl=en&user=pDc_ztMAAAAJ}{Google Scholar}}  \\
+
+  University of North Carolina at Chapel Hill & \multicolumn{1}{r}{\faGithub\;\;} &\multicolumn{1}{l}{\href{https://github.com/yatingz205}{github.com/yatingz205}} \\
+
   UNC Gillings Center for Artificial Intelligence and Public Health (CAIPH) & & \\
 \end{longtable}%
 }
 
 \subsection{\MakeUppercase{Research Areas}}\label{research-interests}
 {\setstretch{1.2}
-My research develops \uline{nonparametric and semiparametric methodology} at the interface of distributional estimation, kernel methods, and reinforcement learning, with a focus on supporting \uline{sequential decision processes} for real-world systems in \uline{structured environments}, including dependent, missing, and hierarchical data, complex survey designs and adaptive trials.
+My research develops \uline{nonparametric methodology} at the
+interface of distributional estimation, kernel methods, and reinforcement learning, with a focus on supporting \uline{sequential decision processes} for real-world systems in \uline{structured environments}, including dependent, missing, and
+hierarchical data, complex survey designs and adaptive trials.
 }
 
 
@@ -185,6 +184,7 @@ My research develops \uline{nonparametric and semiparametric methodology} at the
 
 
 
+
 \subsection{\MakeUppercase{Publications}}\label{publications}
 
 \textbf{\textsuperscript{\dag}} \emph{First or joint-first author with equal contribution}\\
@@ -205,6 +205,7 @@ My research develops \uline{nonparametric and semiparametric methodology} at the
 \printbibliography[keyword=inprep, heading=none]
 }
 
+\vspace{0.5cm}
 \textbf{Applied \& Collaborative}\\
 \textit{Published}
 {
@@ -258,11 +259,11 @@ My research develops \uline{nonparametric and semiparametric methodology} at the
   %%%%%\leftskip-0.25in % for bullets
   %\leftskip-0.13in % for numbers
   \item ``Asymptotics of Nonparametric Estimation under general non-monotone MAR missingness''\\
-  CFE-CMStatistics 2026, Berlin, Germany$^\textsubscript{†}$ (presenting by Jeffrey N\"af)
+  CFE-CMStatistics 2026, Berlin, Germany$^\textsubscript{†}$ (presenting by Jeffrey)
   
   \item ``Test-Set Validation of Dynamic Treatment Regimes for Indefinite-Horizon Survival Outcomes''\\
   JSM 2026, Boston, USA, (presented by Anthony Wang)\\
-  Received the Zink Scholarship in Biostatistics
+  $\star$ Received the Zink Scholarship in Biostatistics
   
   \item ``Distributional Random Forest for Complex Survey Designs'' \\
   JSM 2025, Nashville, USA
@@ -286,6 +287,9 @@ My research develops \uline{nonparametric and semiparametric methodology} at the
   \item ``An HIV-1 risk assessment tool for women aged 15-49 in African countries: A machine-learning approach across 15 pooled nationally representative surveys''\\
   CROI 2024 (Conference on Retroviruses and Opportunistic Infections), Colorado, USA\\
   UNC Data Science Symposium 2024, North Carolina, USA
+
+  \item ``Kaposi Sarcoma Herpesvirus in Plasma: Association with Treatment Failure in Limited-Stage AIDS-KS''\\
+  UNC Lineberger 50th Annual Scientific Retreat 2026, North Carolina, USA
 
 \end{enumerate}
 
@@ -313,14 +317,15 @@ UNC Gillings Center for Artificial Intelligence and Public Health (CAIPH)\\
 Mountain Area Health Education Center (MAHEC)
 }
 
-\subsection{\MakeUppercase{Honors and Awards}}\label{honours-and-awards}
+\subsection{\MakeUppercase{Honors and
+Awards}}\label{honours-and-awards}
 %%%\centering
 \noindent
 {\def\arraystretch{1.2}\tabcolsep=0pt
 \begin{longtable}{p{0.15\linewidth}p{0.85\linewidth}}
 
   2026 & Kalyani Sen International Student's Scholarship in Biostatistics \\
-
+  
   2025 & Travel Award, Biostatistics Department at Gillings School of Public Health \\
   
   2025 & Gillings School Graduate Student Teaching Assistant Award \\
@@ -402,9 +407,11 @@ Mountain Area Health Education Center (MAHEC)
 {\def\arraystretch{1.2}\tabcolsep=0pt
 \begin{longtable}{p{0.15\linewidth}p{0.85\linewidth}}
 
-    2025--Present & \textit{President}, UNC-CH ASA Student Chapter \\
+    2025 & \textit{President}, UNC-CH ASA Student Chapter \\
 
-    2025--Present  & \textit{Student volunteer}, UNC-CH Biostatistics Department Computing Committee\\
+    2025  & \textit{Student volunteer}, UNC-CH Biostatistics Department Computing Committee\\
+
+    2025 & \textit{Logo design team}, UNC Gillings Center for Artificial Intelligence and Public Health \\
 
     2025 & \textit{Panelist}, Student Panel: Navigating your Research Journey at UNC Biostatistics \\
 
@@ -416,42 +423,17 @@ Mountain Area Health Education Center (MAHEC)
 
     2022 & \textit{Instructor volunteer}, Girls Talk Math at UNC-CH \\
 
-    2023-2025 & \textit{Student} \textit{volunteer}, Gillings Big Buddy Program for Incoming Students (2023-2025) \\
+    2023-2025 & \textit{Student} \textit{volunteer}, Gillings Big Buddy Program for Incoming Students (2023-2026) \\
     
     On-going & \textit{Reviewer}, JRSS-C (1x), Annals of Statistics (1x), The American Statistician (1x)\\
 \end{longtable}%
 }
 
 
-% ---------------------------------------------------------------------------
-% REFERENCES -- commented out of the PUBLIC variant.
-% This block lists three colleagues' personal email addresses. They agreed to
-% act as referees on a CV sent to search committees, not on a page indexed by
-% search engines, so publishing their addresses would expose third-party contact
-% details without consent. Keep this section in the private CV; leave it
-% commented here. Restore by deleting the \begin{comment}/\end{comment} lines.
-% Their email addresses have also been stripped from this source: commenting a block
-% out hides it from the PDF but NOT from a public git repo. Re-add them only in a
-% private copy.
-% ---------------------------------------------------------------------------
 \begin{comment}
 \subsection{\MakeUppercase{References}}
-{\setstretch{1.1}
-\noindent \textbf{Michael R. Kosorok} \emph{(Ph.D. Advisor)}\\
-\textit{W.\,R. Kenan, Jr. Distinguished Professor of Biostatistics}; \\
-\textit{Professor of Statistics and Operations Research}; \\
-\textit{Founding Director, Center for Artificial Intelligence and Public Health}\\
-{University of North Carolina at Chapel Hill}\\
-
-\noindent \textbf{Jeffrey Näf} \emph{(Collaborator, Nonparametric Estimation under MAR)}\\
-\textit{Assistant Professor of Statistics and Business Analytics}\\
-{Geneva School of Economics and Management, University of Geneva}\\
-
-
-\noindent \textbf{Marcos Matabuena} \emph{(Collaborator, Survey Distributional Random Forests)}\\
-\textit{Assistant Professor, Department of Epidemiology}\\
-{Mohamed bin Zayed University of Artificial Intelligence}\\
-}
+\label{presentation}
+Michael, R., Kosorok, 
+email: 
 \end{comment}
-
 \end{document}

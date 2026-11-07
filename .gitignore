@@ -25,7 +25,7 @@ vendor
 *.synctex.gz
 cv-source/build.log
 # compiled CV: rebuilt by latexmk; the published copy is assets/pdf/CV_YatingZou.pdf
-cv-source/cv_postdoc.pdf
+cv-source/cv_faculty.pdf
 
 # Upstream al-folio manual: kept on disk as local reference, not part of this repo.
 # It documents the starter, much of which this site has diverged from. Current copy:

@@ -5,7 +5,7 @@
   A deliberately minimal publication entry: plain black text, with bracketed
   link tokens ([paper], [slides], ...) as the only colored elements.
 
-  To add a link to an entry, add the matching field in _bibliography/papers.bib:
+  To add a link to an entry, add the matching field in _bibliography/references_faculty.bib:
 
     pdf    = {my-paper.pdf}          -> [paper]   (a bare filename resolves to /assets/pdf/)
     html   = {https://...}           -> [paper]   (takes priority over pdf/doi)
@@ -18,7 +18,7 @@
     abstract = {...}                 -> [abs]     (expands inline)
     bibtex_show = {true}             -> [bib]     (expands inline)
 
-  Styling lives in _sass/_pubs.scss (shared with the about page).
+  Styling lives in assets/_sass/_pubs.scss (shared with the about page).
 {%- endcomment -%}
 
 {%- comment -%}
@@ -35,13 +35,27 @@
   literal one would double up there and break its exact-name test for bolding "Zou".
 {%- endcomment -%}
 {%- assign equal_n = entry.equalcontrib | plus: 0 -%}
+{%- comment -%}
+  Author lists stop after 10 names with "et al.", matching maxbibnames=10 in the CV.
+  BibTeX's `and others` also renders as "et al.", and a `{\ldots}` author as an ellipsis.
+{%- endcomment -%}
+{%- assign max_authors = 10 -%}
 
 <div class="pub" id="{{ entry.key }}">
   <div class="pub-title">{{ entry.title }}</div>
 
   <div class="pub-meta">
     <span class="pub-authors">
-      {%- for author in entry.author_array -%}
+      {%- for author in entry.author_array limit: max_authors -%}
+        {%- if author.last == 'others' -%}
+          {%- unless forloop.first %}, {% endunless -%}
+          et al.
+          {%- continue -%}
+        {%- elsif author.last contains 'ldots' -%}
+          {%- unless forloop.first %}, {% endunless -%}
+          &hellip;
+          {%- continue -%}
+        {%- endif -%}
         {%- assign author_last_name = author.last | regex_replace: '[*∗†‡§¶‖&^]', '' -%}
         {%- assign author_last_html = author.last | regex_replace: '([*∗†‡§¶‖&^]+)', '<sup>\1</sup>' -%}
         {%- assign author_is_self = false -%}
@@ -79,6 +93,7 @@
           <sup>&dagger;</sup>
         {%- endif -%}
       {%- endfor -%}
+      {%- if entry.author_array.size > max_authors %}, et al.{% endif -%}
     </span>
 
     {%- assign proceedings = 'inproceedings,incollection' | split: ',' -%}

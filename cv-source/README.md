@@ -2,31 +2,33 @@
 
 Builds `assets/pdf/CV_YatingZou.pdf`, the CV served from the website.
 
-**This is the public variant: the phone number and personal email are deliberately
-removed.** The header links to the website, Google Scholar and GitHub instead. Keep it
-in sync with your private CV, and re-check that nothing personal creeps back in.
+**This is the public variant: no phone number, no email address of any kind (not even
+the UNC one), and no referee contact details** (the References section stays inside
+`\begin{comment}`). The header links to the website, Google Scholar and GitHub instead.
+Keep it in sync with your private CV, and re-check that nothing personal creeps back in.
 
 ## Build
 
 ```bash
 export PATH="/Library/TeX/texbin:$PATH"
 cd cv-source
-latexmk -xelatex cv_postdoc.tex
-cp cv_postdoc.pdf ../assets/pdf/CV_YatingZou.pdf
+latexmk -xelatex cv_faculty.tex
+cp cv_faculty.pdf ../assets/pdf/CV_YatingZou.pdf
 ```
 
-Then verify the blinding actually held — the raw byte scan also catches link
-annotations, which plain text extraction misses:
+Then verify nothing personal got in. Check both the visible text and the link
+annotations (a `mailto:` can hide behind link text). Plain `strings` on the PDF does
+**not** work: the streams are compressed, so it finds nothing and always looks clean.
 
 ```bash
-# Should print 0. Keep the pattern in a local file rather than here, so this public
-# repo does not spell out the very details being removed.
-strings ../assets/pdf/CV_YatingZou.pdf | grep -cEf ~/.cv-blinding-patterns
+# Both lines must print no email address and no phone number.
+pdftotext ../assets/pdf/CV_YatingZou.pdf - | grep -nE '@|[0-9]{3}[ .-][0-9]{3}[ .-][0-9]{4}'
+qpdf --qdf --object-streams=disable ../assets/pdf/CV_YatingZou.pdf - | grep -ao '/URI *([^)]*)' | sort -u
 ```
 
 ## Notes
 
-- **Bibliography is shared** with the website: `\addbibresource{../_bibliography/references_postdoc.bib}`.
+- **Bibliography is shared** with the website: `\addbibresource{../_bibliography/references_faculty.bib}`.
   One file feeds both the CV and the publications page, so they cannot drift.
 - **Requires XeLaTeX** (`fontspec`/`mathspec`), plus `biber`.
 - Local one-time setup on macOS:
