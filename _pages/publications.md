@@ -9,7 +9,7 @@ nav_order: 2
 
 <!--
   Two sections, split by the `keywords` field in _bibliography/references_faculty.bib:
-    methods section  -> keywords containing `methods` or `inprep`
+    methods section  -> keywords containing `methods`, then those containing `inprep` (in preparation last)
     applied section  -> keywords containing `appPub`, `appSub` or `appPre` (matched on `app`)
   Entry markup: _layouts/bib.liquid. Styling: assets/_sass/_pubs.scss.
 -->
@@ -22,7 +22,8 @@ nav_order: 2
 <h2 id="methods" class="pub-section">methods</h2>
 
 <div class="publications">
-{% bibliography --query @*[keywords ~= methods|inprep] %}
+{% bibliography --query @*[keywords ~= methods] %}
+{% bibliography --query @*[keywords ~= inprep] %}
 </div>
 
 <h2 id="applied" class="pub-section">applied &amp; collaboration</h2>

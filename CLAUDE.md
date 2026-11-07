@@ -136,7 +136,7 @@ files rather than adding parallel ones, and carry over:
 - **Three `.tex` fixes**, marked with comments: `academicons`/`fontawesome` load _after_ the
   fontspec/mathspec block; `\pdfstringdefDisableCommands{\let\MakeUppercase\relax}`; and the
   `\addbibresource` path above.
-- **Section split by `keywords`**: `methods`/`inprep` → methods, `appPub`/`appSub`/`appPre` →
+- **Section split by `keywords`**: `methods` then `inprep` (in preparation last) → methods, `appPub`/`appSub`/`appPre` →
   applied (on both the CV and the site). `firstauthor`/`senior` drive the CV's †/‡ only.
 
 The web author list stops after 10 names with "et al." (in `_layouts/bib.liquid`) to match
